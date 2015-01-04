@@ -1,0 +1,15 @@
+name: "plk's place"
+description: A random-generated-content blog
+meta_description: "Personal blog of Gianguido (plk) Sorà, with a great punchline too."
+
+markdown: redcarpet
+highlighter: pygments
+logo: false
+paginate: 15
+baseurl: /
+domain_name: 'http://blog.urandom.me'
+google_analytics: 'UA-XXXXXXXX-X'
+
+# Details for the RSS feed generator
+url:            'blog.urandom.me'
+author:         'Gianguido (plk) Sorà'
