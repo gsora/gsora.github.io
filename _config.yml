@@ -14,4 +14,4 @@ google_analytics: 'UA-XXXXXXXX-X'
 url:            'blog.urandom.me'
 author:         'Gianguido (plk) Sorà'
 
-comments: true
+disqus: true
