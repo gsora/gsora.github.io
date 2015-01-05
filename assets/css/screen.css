@@ -522,6 +522,12 @@ margin on the iframe, cause it breaks stuff. */
     animation: none;
 }
 
+/* fixed! */
+.fixed {
+    position: fixed;
+    top:0; left:0;
+}
+
 /* Put a semi-opaque radial gradient behind the icon to make it more visible
    on photos which happen to have a light background. */
 .home-template .main-header:after {
