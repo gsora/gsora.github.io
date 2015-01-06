@@ -1,0 +1,41 @@
+---
+layout: default
+post_class: post-template page-template
+---
+
+<nav class="main-nav clearfix">
+    <a class="back-button icon-arrow-left" href="{{ site.baseurl }}">Home</a>
+</nav>
+
+
+<main class="content" role="main">
+    <article class="post">
+        <!-- <header class="post-header">
+            <a id="blog-logo" href="{{site.baseurl}}">
+                {% if site.logo %}
+                    <img src="{{site.logo}}" alt="{{ site.name }}" />
+                {% else %}
+                    <span class="blog-title">{{ site.name }}</span>
+                {%endif%} 
+            </a>
+        </header> -->
+
+        <h1 class="post-title">{{ page.title }}</h1>
+
+        <section class="post-content">
+          <div class="me" style="border-radius: 50%; 
+            -webkit-box-shadow: inset 2px 2px 7px 0px rgba(50, 50, 50, 0.39); 
+            -moz-box-shadow:    inset 2px 2px 7px 0px rgba(50, 50, 50, 0.39); 
+            box-shadow:         inset 2px 2px 7px 0px rgba(50, 50, 50, 0.39); 
+            margin-left:auto; 
+            margin-right:auto; 
+            width:250px;
+            height:250px;
+            background-size:250px;
+            background-image:url(https://pbs.twimg.com/profile_images/549001467156119553/i0IIRT29.jpeg);"></div>
+            {{content}}
+        </section>
+
+    </article>
+
+</main>
