@@ -13,5 +13,5 @@ google_analytics: 'UA-XXXXXXXX-X'
 # Details for the RSS feed generator
 url:            'blog.urandom.me'
 author:         'Gianguido (plk) Sorà'
-permalink: pretty
+permalink: /:year/:month/:day/:title 
 about: false
