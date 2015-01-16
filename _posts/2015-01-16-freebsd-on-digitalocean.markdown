@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "FreeBSD on DigitalOcean
+title:  "FreeBSD on DigitalOcean"
 date:   2015-01-16 17:13:05
 categories: freebsd digitalocean vps
 ---
