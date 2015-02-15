@@ -60,7 +60,7 @@ tutte retina.
 
 "Il problema non sussiste, alla fine se scala lo farà solo all'atto della selezione della risoluzione" mi sono detto, prima di comprarlo.
 
-#\#einvece.
+# \#einvece.
 
 OS X, dall'alto della sua intelligenza **scala in tempo reale componenti grafici e non**.
 
