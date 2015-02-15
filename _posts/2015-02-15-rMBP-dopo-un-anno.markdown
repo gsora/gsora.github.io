@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Retina MacBook Pro dopo un anno"
+title:  "[Italian] Retina MacBook Pro dopo un anno"
 date:   2015-02-15 17:30:00
 categories: apple macbook pro retina rmbp italian
 ---
