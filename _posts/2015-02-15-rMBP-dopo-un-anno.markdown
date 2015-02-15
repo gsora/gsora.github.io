@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[IT] Retina MacBook Pro dopo un anno"
+title:  "Retina MacBook Pro dopo un anno"
 date:   2015-02-15 17:30:00
 categories: apple macbook pro retina rmbp italian
 ---
@@ -27,7 +27,7 @@ Come potete notare non è una macchina estremamente potente, ma *dovrebbe* esser
 
 Il problema cruciale è la scelta dello schermo, ed il sistema operativo.
 
-Tralasciando per un attimo la mia propensione a OS come Linux e ultimamente BSD, OS X nelle sue versioni 10.9 e 10.01 risulta essere il peggior sistema operativo che io abbia mai utilizzato da una decina d'anni a questa parte.
+Tralasciando per un attimo la mia propensione a OS come Linux e ultimamente BSD, OS X nelle sue versioni 10.9 e 10.10 risulta essere il peggior sistema operativo che io abbia mai utilizzato da una decina d'anni a questa parte.
 
 Sento già le vocine in lontananza che mi contraddicono dicendo 
 
