@@ -29,7 +29,9 @@ Il problema cruciale è la scelta dello schermo, ed il sistema operativo.
 
 Tralasciando per un attimo la mia propensione a OS come Linux e ultimamente BSD, OS X nelle sue versioni 10.9 e 10.01 risulta essere il peggior sistema operativo che io abbia mai utilizzato da una decina d'anni a questa parte.
 
-Sento già le vocine in lontananza che mi contraddicono dicendo "a me va così bene, non capisco perché a te vada così male".
+Sento già le vocine in lontananza che mi contraddicono dicendo 
+
+    "a me va così bene, non capisco perché a te vada così male".
 
 Ecco, probabilmente questa persona non ha mai usato un rMBP per più di 10 minuti fuori da uno Store.
 
@@ -74,10 +76,22 @@ Non perché la CPU "non è un i7", non perché "8GB di RAM sono pochi per gestir
 
 Questo problema non affligge solo i MacBook Pro ma anche i nuovi iMac con schermo retina 5K, la quale risoluzione non è altro che ((2560x1600) \*2), 5120x3200.
 
-Ad avvalorare la mia tesi, c'è Windows 8.1.
+Un workaround per questo problema sarebbe settare una risoluzione non-retina, il problema è che OS X non permette di farlo nativamente, bisogna acquistare software come SwitchResX che permette di settare una risoluzione arbitraria ed il problema del blur resta sempre.
 
-Windows 8.1 al contrario di OS X gestisce in modo diverso gli schermi HiDPI, ed infatti le animazioni e l'interazione col sistema in generale sono fulminee, inattaccabili.
+Il problema si manifesta nello scrolling, nel drag, resize e minimizzazione delle finestre, nelle animazioni di cambio workspace, ovunque ci sia una minima animazione.
+
+Esempio pratico: avete Eclipse, Firefox, Terminal.app, Cyberduck, iTunes aperti, tutti massimizzati e quindi su un proprio workspace.
+
+Il sistema diventa estremamente lento, personalmente lo ritengo inutilizzabile in sessioni di sviluppo molto lunghe su una risoluzione retina.
+
+Un altro svantaggio è l'eccessivo uso di CPU e RAM: visto che l'OS renderizza 2 volte qualsiasi componente grafico, visualizzare un video diventa un'impresa visto che le ventole dopo pochi minuti partono subito a 6000+RPM e riescono a malapena a mantenere la CPU sotto i 90°.
+
+I video YouTube a 60FPS sono praticamente inguardabili, frame drop ogni 2-3 secondi.
+
+Windows 8.1 al contrario di OS X gestisce in modo diverso gli schermi HiDPI, infatti le animazioni e l'interazione col sistema in generale sono fulminee, inattaccabili, riesco addirittura a giocare **Counter-Strike: Global Offensive** a dettagli medi ad una risoluzione decente, con V-Sync, a 60FPS fissi sulla maggioranza delle mappe.
 
 Infatti almeno secondo la mia **modesta** opinione, questo rMBP è una macchina perfetta per far girare Windows.
 
 OS X è meglio lasciarlo a risoluzioni non-retina per ora, almeno finché Apple non si deciderà a smettere di produrre idiozie piene di bug e feature incomplete in favore di un massivo bugfix sul suo sistema operativo, che osano ancora definire "Un nuovo orizzonte di potenza".
+
+In conclusione, gli schermi retina sono **il bene** ma l'implementazione di Apple è talmente orrida che l'intera UX ne risente pesantemente, tanto da rendermi impossibile lavorare e farmi innervosire molto considerando a che prezzo vengono venduti e la pubblicita fasulla che ricevono dai *grandi siti di tecnologia americani*.
