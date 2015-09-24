@@ -18,4 +18,4 @@ A little workaround I found is to symlink `go` and `gofmt` binaries to a fake `b
     # ln -s /usr/local/bin/gofmt /usr/local/go/bin/gofmt
     # export GOROOT_BOOTSTRAP=/usr/local/go/
 
-After this trick, proceed as seen (here)[https://golang.org/doc/install/source].
+After this trick, proceed as seen [here](https://golang.org/doc/install/source).
