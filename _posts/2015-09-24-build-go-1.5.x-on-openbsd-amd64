@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "Build Go 1.5.x on OpenBSD 5.7 amd64"
+date:   2015-09-24 22:40:37
+categories: go openbsd amd64 programming-languages golang
+---
+
+Building Go from scratch on OpenBSD is a little bit tricky.
+
+Since the Go toolchain is completely written in Go itself, you need a Go compiler to start from.
+
+Luckily, OpenBSD 5.7's repositories already include Go 1.4.1, but for some strange reason launching the script which builds and run all the tests against the newly built release fails to find a valid '''$GOROOT_BOOTSTRAP''' path.
+
+A little workaround I found is to symlink '''go''' and '''gofmt''' binaries to a fake '''bin''' folder inside '''/usr/local/go/''':
+
+    # mkdir /usr/local/go/bin
+    # ln -s /usr/local/bin/go /usr/local/go/bin/go
+    # ln -s /usr/local/bin/gofmt /usr/local/go/bin/gofmt
+    # export GOROOT_BOOTSTRAP=/usr/local/go/
+
+After this trick, proceed as seen (here)[https://golang.org/doc/install/source].
