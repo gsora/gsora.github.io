@@ -1,17 +1,17 @@
-name: "plk's place"
+name: "gsora's place"
 description: A random-generated-content blog
-meta_description: "Personal blog of Gianguido (plk) Sora`, with a great punchline too."
+meta_description: "Personal blog of Gianguido (gsora) Sora`, with a great punchline too."
 
 markdown: redcarpet
 highlighter: pygments
 logo: false
 paginate: 4
 baseurl: /
-domain_name: 'http://blog.urandom.me'
-google_analytics: 'UA-XXXXXXXX-X'
+domain_name: 'http://blog.gsora.xyz'
+google_analytics: 'UA-69845983-1'
 
 # Details for the RSS feed generator
-url:            'blog.urandom.me'
-author:         'Gianguido (plk) Sora`'
+url:            'blog.gsora.xyz'
+author:         'Gianguido (gsora) Sora`'
 permalink: /:year/:month/:day/:title 
 about: false
