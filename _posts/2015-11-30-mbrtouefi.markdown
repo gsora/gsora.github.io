@@ -9,11 +9,11 @@ After literally years of notebook-only computing I finally built a nice desktop 
 
 The Arch Linux installation I had there was already configured to fit my needs and I wanted to test the real flexibility this distro have to offer, so I converted it from a MBR/BIOS system to a UEFI one, here’s how I did it using only the Arch installation media.
 
-# Backup.
+## Backup.
 
 Always make a backup before doing this kind of things.
 
-# Analyzing the partition table
+## Analyzing the partition table
 
 Start the computer from the Arch installation media in UEFI mode first.
 
@@ -21,20 +21,20 @@ The UEFI system relies on a special partition called *”EFI System Partition”
 
 So, the first step is to make room on the disk for this partition.
 
-My partition table was composed from:
+My partition table was composed of:
 
     /dev/sda1: root filesystem
     /dev/sda2: swap partition
     
 Since this new PC have enough RAM already, I simply deleted the swap and extended `sda1` enough to make a 200MB, `ef00` type `ESP` partition.
 
-# Convert the partition table
+## Convert the partition table
 
 To boot with UEFI, you need a `gpt` partition table and luckily a `MBR` partition table can become one easily.
 
 Run `gdisk /dev/sdX`, the software will warn you that if you invoke the `w` command the partition table will be converted to `gpt`, and we want exactly that.
 
-# Follow the white rabbit
+## Follow the white rabbit
 
 The last thing to do is pretty much follow the [Beginner’s guide](https://wiki.archlinux.org/index.php/Beginners'_guide):
     
