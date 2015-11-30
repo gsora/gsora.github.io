@@ -17,7 +17,7 @@ Always make a backup before doing this kind of things.
 
 Start the computer from the Arch installation media in UEFI mode first.
 
-The UEFI system relies on a special partition called *”EFI System Partition”*, abbreviated in `*ESP*`, where the OS bootloader and often its configuration files resides.
+The UEFI system relies on a special partition called *”EFI System Partition”*, abbreviated in *`ESP`*, where the OS bootloader and often its configuration files resides.
 
 So, the first step is to make room on the disk for this partition.
 
