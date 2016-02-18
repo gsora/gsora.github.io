@@ -1,6 +1,6 @@
 name: "gsora's place"
-description: A random-generated-content blog
-meta_description: "Personal blog of Gianguido (gsora) Sora`, with a great punchline too."
+description: A random-generated blog
+meta_description: "Personal blog of Gianguido (gsora) Sorà"
 
 markdown: redcarpet
 highlighter: pygments
@@ -12,6 +12,6 @@ google_analytics: 'UA-69845983-1'
 
 # Details for the RSS feed generator
 url:            'blog.gsora.xyz'
-author:         'Gianguido (gsora) Sora`'
-permalink: /:year/:month/:day/:title 
+author:         'Gianguido (gsora) Sorà'
+permalink: /:year/:month/:day/:title
 about: false
