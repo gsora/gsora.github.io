@@ -1,14 +1,14 @@
 ---
 layout: default
-disqus: true
+disqus: false
 archive: false
 post_class: post-template
 ---
 
 <header class="main-header post-head {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
-	
     <nav class="main-nav {% if page.cover %} overlay {% endif %} clearfix">
         <a class="back-button icon-arrow-left" href="{{ site.baseurl }}">Home</a>
+        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}feed.xml">Subscribe</a>
     </nav>
 </header>
 
@@ -18,12 +18,11 @@ post_class: post-template
 
         <header class="post-header">
             <h1 class="post-title">{{ page.title }}</h1>
-            <section class="post-meta">                
+            <section class="post-meta">
                 <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
-                {% if page.categories.size > 0 %} 
-                    {{ page.categories | array_to_sentence_string | prepend: 'on ' }} 
+                {% if page.categories.size > 0 %}
+                    {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
                 {% endif %}
-                <br>Reading time: {% include readingtime.html %}
             </section>
         </header>
 
@@ -33,14 +32,14 @@ post_class: post-template
                     <img src="{{site.logo}}" alt="{{ site.name }}" />
                 {% else %}
                     <span class="blog-title">{{ site.name }}</span>
-                {%endif%} 
+                {%endif%}
             </a>
         </header> -->
-        
+
         <!-- <span class="post-meta">
             <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
-            {% if page.categories.size > 0 %} 
-                {{ page.categories | array_to_sentence_string | prepend: 'on ' }} 
+            {% if page.categories.size > 0 %}
+                {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
             {% endif %}
         </span> -->
 
@@ -56,7 +55,7 @@ post_class: post-template
             <ul>
                 {% for post in site.posts %}
                     <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>
-                {% endfor %}    
+                {% endfor %}
             </ul>
         </section>
         {% endif %}
@@ -72,37 +71,20 @@ post_class: post-template
                     <!-- Author Name -->
                     <h4> {{ site.author }} </h4>
                     <!-- Author Bio -->
-                    <p> 
-                    Computer science student with interests in high-quality audio equipment, good music, guitars and drums, *NIX environments with particular focus on Linux, Counter-Strike: Global Offensive.</br>
-                    </br>
-                    Uses a Lenovo ThinkPad X61s with ArchLinux as his on-the-go daily driver, a Retina MacBook Pro hooked to a hi-res monitor at home.</br>
-                    </br>
-                    Loves VIM, Python, C, Pizza, friends and competitive games. 
+                    <p>
+                        Here goes the author description. You might want to place some links too in here
                     </p>
-                </section>                
+                </section>
             {% endif %}
 
             <!-- Share links section -->
             {% include share.html %}
-            
+
             <!-- Disqus comments -->
             {% if page.disqus %}
-<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'plksplace'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
+                {% include disqus.html %}
             {% endif %}
-            
+
         </footer>
 
     </article>

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home
-cover: false
+cover: /assets/images/top.png
 about: 'about.html'
 ---
 
@@ -12,16 +12,14 @@ about: 'about.html'
                     <img src="{{ page.logo }}" alt="Blog Logo" />
                 </a>
             {% endif %}
-            <!---<a class="subscribe-button icon-feed" href="{{ site.baseurl }}rss.xml">Subscribe</a> -->
+        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}rss.xml">Subscribe</a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
             <h1 class="page-title">{{ site.name }}</h1>
             <h2 class="page-description">
                 {% if site.description %} {{ site.description }}. {% endif %}
-            </h2>
-            <h2 class="page-description">
-              <a href="http://blog.gsora.xyz/about.html">About me</a>
+                {% if page.about %} <a href='{{ site.baseurl }}{{ page.about }}'> About me </a> {% endif %}
             </h2>
         </div>
     </div>
@@ -47,15 +45,15 @@ about: 'about.html'
         </section>
         <footer class="post-meta">
             {% if site.author %}
-                <img class="author-thumb" src="/assets/images/profile.png" alt="Author's profile picture" nopin="nopin" />
+                <img class="author-thumb" src="/assets/images/me.jpg" alt="Author's profile picture" nopin="nopin" />
                 {{ site.author }}
             {% endif %}
-            {% if post.categories.size > 0 %} 
-                {{ post.categories | array_to_sentence_string | prepend: 'on ' }} 
+            {% if post.categories.size > 0 %}
+                {{ post.categories | array_to_sentence_string | prepend: 'on ' }}
             {% endif %}
             <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">
                 {{ post.date | date_to_string }}
-            </time> 
+            </time>
         </footer>
     </article>
 

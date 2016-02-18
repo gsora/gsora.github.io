@@ -170,7 +170,6 @@ html {
     height: 100%;
     max-height: 100%;
     font-size: 62.5%;
-	background-color: rgb(41, 62, 79);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -181,7 +180,7 @@ body {
     letter-spacing: 0.01rem;
     font-size: 1.8rem;
     line-height: 1.75em;
-    color: rgb(228,228,228);
+    color: #3A4145;
     -webkit-font-feature-settings: 'kern' 1;
     -moz-font-feature-settings: 'kern' 1;
     -o-font-feature-settings: 'kern' 1;
@@ -200,7 +199,7 @@ h4, h5, h6 {
     -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
     -moz-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
     -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-    color: rgb(18, 151, 216);
+    color: #2E2E2E;
     line-height: 1.15em;
     margin: 0 0 0.4em 0;
     font-family: "Open Sans", sans-serif;
@@ -234,12 +233,12 @@ h6 {
 }
 
 a {
-    color: rgb(18, 151, 216);
+    color: #4A4A4A;
     transition: color ease 0.3s;
 }
 
 a:hover {
-    color: rgb(243, 78, 64ar);
+    color: #111;
 }
 
 p, ul, ol, dl {
@@ -330,21 +329,24 @@ code, tt {
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
     white-space: pre-wrap;
-    background: rgb(125, 140, 141);
+    border: #E3EDF3 1px solid;
+    background: #F7FAFB;
+    border-radius: 2px;
 }
 
 pre {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 0 1.75em 0;
-    border: rgb(48, 73, 93) 1px solid;
+    border: #E3EDF3 1px solid;
     width: 100%;
     padding: 10px;
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.9em;
     white-space: pre;
     overflow: auto;
-    background: rgb(48, 73, 93);
+    background: #F7FAFB;
+    border-radius: 3px;
 }
 
 pre code, tt {
@@ -490,7 +492,6 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .main-nav a {
-	color: rgb(243, 78, 64);
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
 }
@@ -520,12 +521,6 @@ margin on the iframe, cause it breaks stuff. */
     color: #fff;
     -webkit-animation: none;
     animation: none;
-}
-
-/* fixed! */
-.fixed {
-    position: fixed;
-    top:0; left:0;
 }
 
 /* Put a semi-opaque radial gradient behind the icon to make it more visible
@@ -667,7 +662,7 @@ margin on the iframe, cause it breaks stuff. */
 /* The details of your blog. Defined in ghost/settings/ */
 .page-title {
     margin: 10px 0 10px 0;
-    font-size: 10rem;
+    font-size: 5rem;
     letter-spacing: -1px;
     font-weight: 700;
     font-family: "Open Sans", sans-serif;
@@ -681,27 +676,27 @@ margin on the iframe, cause it breaks stuff. */
     font-weight: 400;
     font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
-    color: rgba(0,188,156,0.8);
+    color: rgba(255,255,255,0.8);
 }
 
 .no-cover.main-header {
     min-height: 160px;
     max-height: 40%;
-    background: rgb(41, 62, 79);
+    background: #f5f8fa;
 }
 
 .no-cover .page-title {
-    color: rgb(243, 78, 64);
+    color: rgba(0,0,0,0.8);
 }
 
 .no-cover .page-description {
-    color: rgb(0,188,156);;
+    color: rgba(0,0,0,0.5);
 }
 
 .no-cover .main-nav.overlay .back-button,
 .no-cover .main-nav.overlay .subscribe-button {
-    color: rgba(243, 78, 64, 1);
-    border-color: rgba(243, 78, 64,1);
+    color: rgba(0,0,0,0.4);
+    border-color: rgba(0,0,0,0.3);
 }
 
 /* Add subtle load-in animation for content on the home page */
@@ -725,7 +720,7 @@ margin on the iframe, cause it breaks stuff. */
     max-width: 710px;
     margin: 4rem auto;
     padding-bottom: 4rem;
-    border-bottom: rgb(18, 151, 216) 1px solid;
+    border-bottom: #EBF2F6 1px solid;
     word-break: break-word;
     hyphens: auto;
 }
@@ -737,16 +732,16 @@ margin on the iframe, cause it breaks stuff. */
     content: "";
     width: 7px;
     height: 7px;
-    border: rgb(18, 151, 216) 1px solid;
+    border: #E7EEF2 1px solid;
     position: absolute;
     bottom: -5px;
     left: 50%;
     margin-left: -5px;
-    background: rgb(18, 151, 216);
+    background: #FFF;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
-    box-shadow: rgb(18, 151, 216) 0 0 0 5px;
+    box-shadow: #FFF 0 0 0 5px;
 }
 
 body:not(.post-template) .post-title {
@@ -857,7 +852,6 @@ body:not(.post-template) .post-title {
 
 .post-template .post-title {
     margin-bottom: 0;
-	color: rgb(243, 78, 64);
 }
 
 .post-template .post-meta {
@@ -910,7 +904,7 @@ body:not(.post-template) .post-title {
     position: relative;
     margin: 6rem 0 0 0;
     padding: 6rem 0 0 0;
-    border-top: rgb(0, 150, 213) 1px solid;
+    border-top: #EBF2F6 1px solid;
 }
 
 .post-footer h4 {
@@ -1126,9 +1120,9 @@ body:not(.post-template) .post-title {
     border-radius: 100%;
     overflow: hidden;
     padding: 6px;
-    background: rgb(0, 150, 213);
+    background: #fff;
     z-index: 2;
-    box-shadow: rgb(0, 150, 213) 0 0 0 1px;
+    box-shadow: #E7EEF2 0 0 0 1px;
 }
 
 .author-image .img {
@@ -1301,11 +1295,11 @@ body:not(.post-template) .post-title {
     position: relative;
     margin: 8rem 0 0 0;
     padding: 0.5rem 15px;
+    border-top: #EBF2F6 1px solid;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.75em;
     color: #BBC7CC;
-	
 }
 
 .site-footer a {
@@ -1655,7 +1649,7 @@ body:not(.post-template) .post-title {
     .post-footer .author {
         margin: 0 0 2rem 0;
         padding: 0 0 1.6rem 0;
-        border-bottom: rgb(255,80, 68) 1px dashed;
+        border-bottom: #EBF2F6 1px dashed;
     }
 
     .post-footer .share {

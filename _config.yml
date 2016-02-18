@@ -10,3 +10,7 @@ domain_name: 'http://blog.gsora.xyz'
 google_analytics: 'UA-69845983-1'
 
 gems: [jekyll-paginate]
+
+# Details for the RSS feed generator
+url:            'http://blog.gsora.xyz'
+author:         'Gianguido (gsora) Sorà'
