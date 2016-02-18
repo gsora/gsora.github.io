@@ -87,3 +87,9 @@ article.post {
 .author h4 {
     color: #ff5555;
 }
+
+@media only screen and (max-width: 500px) {
+    .back-button, .subscribe-button {
+        color:unset;
+    }
+}
