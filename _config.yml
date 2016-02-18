@@ -9,8 +9,4 @@ baseurl: /
 domain_name: 'http://blog.gsora.xyz'
 google_analytics: 'UA-69845983-1'
 
-# Details for the RSS feed generator
-url:            'blog.gsora.xyz'
-author:         'Gianguido (gsora) Sorà'
-permalink: /:year/:month/:day/:title
-about: false
+gems: [jekyll-paginate]
