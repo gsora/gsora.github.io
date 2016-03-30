@@ -2,6 +2,7 @@ name: "gsora's place"
 description: A random-generated blog
 meta_description: "Personal blog of Gianguido (gsora) Sorà"
 
+markdown: kramdown
 highlighter: rouge
 logo: false
 paginate: 4
