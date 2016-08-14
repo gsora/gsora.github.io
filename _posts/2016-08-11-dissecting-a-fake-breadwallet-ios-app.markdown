@@ -45,7 +45,7 @@ Of course, I already downloaded (and used with much success) the official applic
 
 To decrypt an AppStore binary I used the excellent [Clutch](https://github.com/KJCracks/Clutch), as suggested by the [iPhoneDevWiki](http://iphonedevwiki.net/index.php/Reverse_Engineering_Tools#Clutch).
 
-AppStore binaries are placed in `/var/containers/Bundle/Application`, but the folder containing actual binaries are renamed after an UUID - a quick bash oneliner can help us find the wallets:
+AppStore binaries are placed in `/var/containers/Bundle/Application`, but the folders containing actual binaries are renamed after an UUID - a quick bash oneliner can help us find the wallets:
 
 ```
 iDjentleman:~ root# find /private/var/containers/Bundle/Application -maxdepth 2 -type d -name "*wallet.app" -exec echo {} \;
