@@ -6,22 +6,20 @@ categories: ios security bitcoin breadwallet fake
 ---
 
 ```
-Disclaimer: I do not work for breadwallet, anything you'll read in this article is not endorsed by them; I am fairly new to mobile app security, so expect errors.
+Disclaimer: I do not work for breadwallet, anything you'll read in this article is not endorsed by them; I am fairly new to mobile app security too, so expect errors.
 ```
 
----
-
-Bitcoin is a nice way of thinking about money: you're your bank, anyone knows anything about you and your assets and vice versa, it's decentralized.
+Bitcoin is a nice way of thinking about money: you're your bank, anyone knows anything about your assets and vice versa, it's decentralized.
 
 But since you're the only one responsible for your money, a single error can - and *will* - lead to bad consequences.[^1]
 
 [^1]: Mt.Gox anyone?
 
-Today I'll talk about this last part because since the beginning of august 2016, someone is trying to scam iOS Bitcoin holders - often newcomers - faking one of the most used wallet on this platform, **breadwallet**.
+Today I'll talk about this last part because since the beginning of August 2016, someone is trying to scam iOS Bitcoin holders - often newcomers - faking one of the most used wallet on this platform, **breadwallet**.
 
-iOS is a fairly secure platform, but this fake entity found a method to circumvent the AppStore app review process, uploading many fake version of breadwallet.
+iOS is a fairly secure platform, but this fake entity found a method to circumvent the AppStore app review process, uploading many fraudolent version of breadwallet.
 
-These fake versions tend to have the same behaviour: they are almost identical to official apps in both look and functionality, but they steal coins instead.
+These fake versions tend to have the same behaviour: they're almost identical to official apps in both look and functionality, but they steal coins instead.
 
 ![apps]
 
@@ -34,9 +32,7 @@ Reversing a binary built for iOS isn't a straightforward process, because Apple 
 
 To be able to reverse anything, the first thing to do is proceed to jailbreak a physical iOS device - in this case I used an iPhone 6s.
 
-This way it's far more easier decrypt a packaged AppStore binary, and it's possible to take a look to what the application does on the device itself: since I'm looking for anomalies, better look everywhere.
-
-Then, I needed something to analyze.
+This way it's far more easier to decrypt a packaged AppStore binary, and it's possible to take a look to what the application does on the device itself: since I'm looking for anomalies, better look everywhere.
 
 A quick search on the AppStore for "breadwallet" gave me this interesting clone called "breadywallet" (notice the extra 'y'), that appears as "Hangman" on the SpringBoard.
 
@@ -63,11 +59,9 @@ Running this command will reveal something interesting:
 /private/var/containers/Bundle/Application/BB79C9DE-BBA9-4B39-B959-E085EEC67682/breadwallet.app
 ```
 
-Which one is the official app's folder?
+How can we distinguish between the fake app and the official one?[^2]
 
-More chaos for the end-user is advisable in this situation, I guess.
-
-How can we distinguish between the fake app and the official one?
+[^2]: More chaos for the end-user is advisable in this situation, I guess.
 
 Every iOS application embeds a metadata file - `iTunesMetadata.plist`; using `plutil` we can check for the software Bundle ID (which should be unique for every application on the AppStore):
 
@@ -100,7 +94,7 @@ I decrypted the real breadwallet too, for the sake of comparison.
 
 All these operations have been executed via SSH directly on the device, now we can take the reverse engineering process on a PC.
 
-## A rough idea lead to correct conclusions
+## A rough idea
 
 My first thought was:
 
@@ -110,9 +104,9 @@ this means the faker could have "engraved" this address in the binary.
 
 `strings` to the rescue!
 
-A Bitcoin wallet address is simple[^2]:
+A Bitcoin wallet address is simple[^3]:
 
-[^2]: [ref](https://en.bitcoin.it/wiki/Address); the method I describe here doesn't 100% validate an address
+[^3]: [ref](https://en.bitcoin.it/wiki/Address); the method I describe here doesn't 100% validate an address
 
  - its length goes from a minimum of 25 characters, to a max of 35
  - it starts with a "1" or a "3"
@@ -146,7 +140,7 @@ All the interesting action happends inside the `BRSendViewController` class.
 
 Inside the fake breadwallet there's a method called `makeTest`, which have an almost identical flow compared to the legit `payToClipboard`; this last method basically send a fixed amount of coins to the address the OS clipboard contains.
 
-`makeTest` does something similar: it creates a payment request for the fraud address instead of the one contained into payToClipboard, then displays a fake error message:
+`makeTest` does something similar: it creates a payment request for the fraud address instead of the one contained into `payToClipboard`, then displays a fake error message:
 
 ```
 Wallet decryption error, check phone for unwanted programs"
@@ -159,7 +153,7 @@ When the payment view will be presented, `makeTest` will be called.
 
 ## Conclusions
 
-Using a common blockchain explorer we can clearly see that this address was not used until the 1st of August 2016; during the period between its first transaction and the 13 of August, this address accumulated *~47BTC*, and widthrawn everything to multiple addresses the 12 of August.
+Using a common blockchain explorer we can clearly see that this address was not used until the 1st of August 2016; during the period between its first transaction and the 13 of August, this address accumulated *~47BTC*, and withdrawn everything to multiple addresses the 12 of August.
 
 At the current exchange value, 47BTC can be converted to about *27k$*.
 
