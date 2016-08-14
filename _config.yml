@@ -12,6 +12,8 @@ google_analytics: 'UA-69845983-1'
 
 gems: [jekyll-paginate]
 
+permalink: :year/:title
+
 # Details for the RSS feed generator
 url:            'http://blog.gsora.xyz'
 author:         'Gianguido (gsora) Sorà'
