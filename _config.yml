@@ -1,19 +1,31 @@
-name: "gsora's place"
-description: A random-generated blog
-meta_description: "Personal blog of Gianguido (gsora) Sorà"
+# Permalinks
+permalink:           pretty
 
-markdown: kramdown
-highlighter: rouge
-logo: false
-paginate: 4
-baseurl: /
-domain_name: 'http://blog.gsora.xyz'
-google_analytics: 'UA-69845983-1'
+# Setup
+title:               gsora's place
+tagline:             about me 
+url:                 http://blog.gsora.xyz
+paginate:            4
+baseurl:             ""
+permalink:           :year/:title
 
-gems: [jekyll-paginate]
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
 
-permalink: :year/:title
+# About/contact
+author:
+  name:              Gianguido (gsora) Sorà
+  url:               https://twitter.com/gsora_
+  email:             gsora@protonmail.com
 
-# Details for the RSS feed generator
-url:            'http://blog.gsora.xyz'
-author:         'Gianguido (gsora) Sorà'
+# gsora personalizations
+analytics_id: 'UA-69845983-1'
+        
+# Gems
+gems:
+  - jekyll-paginate
+  - jekyll-gist

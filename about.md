@@ -5,7 +5,7 @@ title: About me
 
 Hi there, stranger!
 
-My name is **Gianguido Sorà**, alias **peppelakappa**/**plk**/**gsora** and I'm a young old italian computer science student.
+My name is **Gianguido Sorà**, alias **peppelakappa**/**plk**/**gsora** and I'm a young italian computer science student.
 
 I don't really like to give myself a tag when talking of software development, instead I like to introduce myself as a *young hacker* where "hacker" means someone who likes to tinker with new stuff and learn how it works, then have fun modifying it!
 
@@ -25,4 +25,4 @@ My musical tastes are various, but let's say that I listen from Led Zeppelin, Pi
 
 I really enjoy mountain-biking when possible, and good competitive game on **Counter-Strike: Global Offensive** with my friends too.
 
-You can get in touch with me on [Twitter](http://twitter.com/gsora_) and see my code on [GitHub](http://github.com/peppelakappa)!
+You can get in touch with me on [Twitter](http://twitter.com/gsora_) and see my code on [GitHub](http://github.com/gsora)!
