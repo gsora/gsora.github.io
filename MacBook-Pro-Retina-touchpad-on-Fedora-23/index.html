@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MacBook Pro Retina touchpad on Fedora 23</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.17" />
+  <link href="" rel="alternate" type="application/rss+xml" title="gsora&#39;s place" />
+  <link href="http://blog.gsora.xyz/css/styles.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+
+     <div class="container">
+
+<header class="masthead">
+  <h3 class="masthead-title"><a href="http://blog.gsora.xyz">gsora&#39;s place</a>
+    <Small><a href="http://blog.gsora.xyz/about">about me</a></small></h3>
+</header>
+<article class="post">
+  <h1 class="post-title">MacBook Pro Retina touchpad on Fedora 23</h1>
+  <time class="post-date">Mon, Nov 9, 2015</time>
+  <p>Fedora 23 is working great on my 13&rdquo; MacBook Pro Retina but the Synaptics&rsquo;s touchpad driver is lacking gestures and palm/thumb recognize support.</p>
+
+<p></p>
+
+<p>To enable something that can be called &ldquo;gestures&rdquo;, the <code>mtrack</code> driver can be installed and tweaked at our desire.</p>
+
+<p>Since it&rsquo;s not available already build, I wrote a <code>spec</code> that will download and build the <code>rpm</code> for you</p>
+
+<pre><code>$ wget https://goo.gl/89Fu0R
+$ rpmbuild -ba xorg-x11-drv-mtrack-git.spec
+$ rpm -ivh ~/rpmbuild/RPMS/xorg-x11-drv-mtrack*
+</code></pre>
+
+<p>Once done, uninstall the Synaptics driver:</p>
+
+<pre><code>$ sudo dnf remove xorg-x11-drv-synaptics
+</code></pre>
+
+<p><a href="https://gist.github.com/32d6de025481698c9ea8">This</a> is my configuration, place it into <code>/etc/X11/xorg.conf.d/20-mtrack.conf</code>.</p>
+
+<p>Happy scrolling!</p>
+</article>
+
+<aside class="related">
+  <h3>Related Posts</h3>
+  <ul class="related-posts">
+         
+
+
+         
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/">Dissecting a fake breadwallet iOS app</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Convert-Arch-Linux-installation-from-MBR/BIOS-to-UEFI/">Convert Arch Linux installation from MBR/BIOS to UEFI</a></li>
+           
+          
+
+          
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/i3wm-Retina-ready/">i3wm Retina-ready</a></li>
+           
+          
+
+
+              </ul>
+  </aside>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gsorasplace';
+    var disqus_identifier = 'http:\/\/blog.gsora.xyz\/MacBook-Pro-Retina-touchpad-on-Fedora-23\/';
+    var disqus_title = 'MacBook Pro Retina touchpad on Fedora 23';
+    var disqus_url = 'http:\/\/blog.gsora.xyz\/MacBook-Pro-Retina-touchpad-on-Fedora-23\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</ul>
+
+<footer class="footer">
+  <small style="padding-top:2rem">
+    <p class="text-muted credit">&copy; 2016. All rights reserved. </p>
+    </small>
+</footer>
+</div>
+</body>
+</html>
+

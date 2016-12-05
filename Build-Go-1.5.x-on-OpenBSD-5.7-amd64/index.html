@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Build Go 1.5.x on OpenBSD 5.7 amd64</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.17" />
+  <link href="" rel="alternate" type="application/rss+xml" title="gsora&#39;s place" />
+  <link href="http://blog.gsora.xyz/css/styles.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+
+     <div class="container">
+
+<header class="masthead">
+  <h3 class="masthead-title"><a href="http://blog.gsora.xyz">gsora&#39;s place</a>
+    <Small><a href="http://blog.gsora.xyz/about">about me</a></small></h3>
+</header>
+<article class="post">
+  <h1 class="post-title">Build Go 1.5.x on OpenBSD 5.7 amd64</h1>
+  <time class="post-date">Thu, Sep 24, 2015</time>
+  <p>Building Go from scratch on OpenBSD is a little bit tricky.</p>
+
+<p></p>
+
+<p>Since the Go toolchain is completely written in Go itself, you need a Go compiler to start from.</p>
+
+<p>Luckily, OpenBSD 5.7&rsquo;s repositories already include Go 1.4.1, but for some strange reason launching the script which builds and run all the tests against the newly built release fails to find a valid <code>$GOROOT_BOOTSTRAP</code> path.</p>
+
+<p>A little workaround I found is to symlink <code>go</code> and <code>gofmt</code> binaries to a fake <code>bin</code> folder inside <code>/usr/local/go/</code>:</p>
+
+<pre><code># mkdir /usr/local/go/bin
+# ln -s /usr/local/bin/go /usr/local/go/bin/go
+# ln -s /usr/local/bin/gofmt /usr/local/go/bin/gofmt
+# export GOROOT_BOOTSTRAP=/usr/local/go/
+</code></pre>
+
+<p>After this trick, proceed as seen <a href="https://golang.org/doc/install/source">here</a>.</p>
+</article>
+
+<aside class="related">
+  <h3>Related Posts</h3>
+  <ul class="related-posts">
+         
+
+
+         
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/">Dissecting a fake breadwallet iOS app</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Convert-Arch-Linux-installation-from-MBR/BIOS-to-UEFI/">Convert Arch Linux installation from MBR/BIOS to UEFI</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/">MacBook Pro Retina touchpad on Fedora 23</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/i3wm-Retina-ready/">i3wm Retina-ready</a></li>
+           
+          
+
+
+              </ul>
+  </aside>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gsorasplace';
+    var disqus_identifier = 'http:\/\/blog.gsora.xyz\/Build-Go-1.5.x-on-OpenBSD-5.7-amd64\/';
+    var disqus_title = 'Build Go 1.5.x on OpenBSD 5.7 amd64';
+    var disqus_url = 'http:\/\/blog.gsora.xyz\/Build-Go-1.5.x-on-OpenBSD-5.7-amd64\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</ul>
+
+<footer class="footer">
+  <small style="padding-top:2rem">
+    <p class="text-muted credit">&copy; 2016. All rights reserved. </p>
+    </small>
+</footer>
+</div>
+</body>
+</html>
+

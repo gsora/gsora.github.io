@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gsora&#39;s place</title>
+    <link>http://blog.gsora.xyz/categories/jolla-sailfishos-tethering/index.xml</link>
+    <description>Recent content on gsora&#39;s place</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.gsora.xyz/categories/jolla-sailfishos-tethering/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Jolla USB tethering hacks</title>
+      <link>http://blog.gsora.xyz/Jolla-USB-tethering-hacks/</link>
+      <pubDate>Sun, 04 Jan 2015 22:40:37 +0000</pubDate>
+      
+      <guid>http://blog.gsora.xyz/Jolla-USB-tethering-hacks/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Run these commands in a terminal, or make a bash script if you often need them!&lt;/p&gt;
+
+&lt;p&gt;To turn off simply reboot your Jolla, of course the &lt;em&gt;Developer Mode must be activated before&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;3g-connection-usb-tethering&#34;&gt;3G connection —&amp;gt; USB tethering&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
+# /sbin/iptables -t nat -A POSTROUTING -o rmnet0 -j MASQUERADE
+# /sbin/iptables -A FORWARD -i rmnet0 -o rndis0 -m state --state \ RELATED,ESTABLISHED -j ACCEPT
+# /sbin/iptables -A FORWARD -i rndis0 -o rmnet0 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;wifi-connection-usb-tethering&#34;&gt;WiFi connection —&amp;gt; USB tethering&lt;/h3&gt;
+
+&lt;p&gt;It might seem strange but sometimes when I&amp;rsquo;m in class I need to route the WiFi to my MacBook via USB, specially during some awkward Linux setup.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
+# /sbin/iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+# /sbin/iptables -A FORWARD -i wlan0 -o rndis0 -m state --state \ RELATED,ESTABLISHED -j ACCEPT
+# /sbin/iptables -A FORWARD -i rndis0 -o wlan0 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After this, you&amp;rsquo;ll need to set the new interface that popped out on your network manager with a static IP address, because by now Jolla &lt;strong&gt;doesn&amp;rsquo;t&lt;/strong&gt; ship with a DHCP server configured to serve addresses to &lt;code&gt;rndis0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Basically, you need to set an IP in the same area of the one reported under &lt;strong&gt;Settings &amp;gt; System &amp;gt; Developer Mode &amp;gt; USB IP address&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example if your Jolla has &lt;code&gt;192.168.2.15&lt;/code&gt; reported there, set it as the router, set the machine IP to &lt;code&gt;192.168.2.17&lt;/code&gt;, set an appropriated subnet mask which in this case is &lt;code&gt;255.255.0.0&lt;/code&gt; and set a DNS server like OpenDNS, `208.67.222$&lt;/p&gt;
+
+&lt;p&gt;If for some (even more) strange situation you&amp;rsquo;ll need to do this on OSX, install the latest version of &lt;a href=&#34;http://joshuawise.com/horndis#available_versions&#34;&gt;HoRNDIS&lt;/a&gt;, reboot and configure as explained before.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

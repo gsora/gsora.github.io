@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://blog.gsora.xyz/</loc>
+    <lastmod>2016-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/</loc>
+    <lastmod>2016-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/Convert-Arch-Linux-installation-from-MBR/BIOS-to-UEFI/</loc>
+    <lastmod>2015-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/</loc>
+    <lastmod>2015-11-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/i3wm-Retina-ready/</loc>
+    <lastmod>2015-11-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/Build-Go-1.5.x-on-OpenBSD-5.7-amd64/</loc>
+    <lastmod>2015-09-24T22:40:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/Italian-Retina-MacBook-Pro-dopo-un-anno/</loc>
+    <lastmod>2015-02-15T17:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/Jolla-USB-tethering-hacks/</loc>
+    <lastmod>2015-01-04T22:40:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/about/</loc>
+    <lastmod>2015-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+</urlset>

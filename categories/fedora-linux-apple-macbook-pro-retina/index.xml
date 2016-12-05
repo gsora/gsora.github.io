@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gsora&#39;s place</title>
+    <link>http://blog.gsora.xyz/categories/fedora-linux-apple-macbook-pro-retina/index.xml</link>
+    <description>Recent content on gsora&#39;s place</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.gsora.xyz/categories/fedora-linux-apple-macbook-pro-retina/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MacBook Pro Retina touchpad on Fedora 23</title>
+      <link>http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/</link>
+      <pubDate>Mon, 09 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/</guid>
+      <description>&lt;p&gt;Fedora 23 is working great on my 13&amp;rdquo; MacBook Pro Retina but the Synaptics&amp;rsquo;s touchpad driver is lacking gestures and palm/thumb recognize support.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;To enable something that can be called &amp;ldquo;gestures&amp;rdquo;, the &lt;code&gt;mtrack&lt;/code&gt; driver can be installed and tweaked at our desire.&lt;/p&gt;
+
+&lt;p&gt;Since it&amp;rsquo;s not available already build, I wrote a &lt;code&gt;spec&lt;/code&gt; that will download and build the &lt;code&gt;rpm&lt;/code&gt; for you&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget https://goo.gl/89Fu0R
+$ rpmbuild -ba xorg-x11-drv-mtrack-git.spec
+$ rpm -ivh ~/rpmbuild/RPMS/xorg-x11-drv-mtrack*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once done, uninstall the Synaptics driver:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo dnf remove xorg-x11-drv-synaptics
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/32d6de025481698c9ea8&#34;&gt;This&lt;/a&gt; is my configuration, place it into &lt;code&gt;/etc/X11/xorg.conf.d/20-mtrack.conf&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Happy scrolling!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

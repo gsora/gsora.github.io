@@ -1,0 +1,95 @@
+.me {
+    border-radius: 50%;
+    -webkit-box-shadow: inset 2px 2px 7px 0px rgba(50, 50, 50, 0.39);
+    -moz-box-shadow:    inset 2px 2px 7px 0px rgba(50, 50, 50, 0.39);
+    box-shadow:         inset 2px 2px 7px 0px rgba(50, 50, 50, 0.39);
+    margin-left:auto;
+    margin-right:auto;
+    width:250px;
+    height:250px;
+    background-size:250px;
+    background-image:url(/assets/images/me.jpg);
+}
+
+a, h1 {
+    color: #ffb86c;
+}
+
+h2 {
+    color: #50fa7b;
+}
+
+a:hover {
+    color: #f1fa8c;
+}
+
+body {
+    color: #f8f8f2;
+}
+
+body {
+    background-color: #282a36;
+}
+
+.no-cover.main-header {
+    background-color: #44475a;
+}
+
+.no-cover .page-title {
+    color: #ff5555;
+}
+
+.no-cover .page-description {
+    color: #6272a4;
+}
+
+.highlighter-rouge, .highlight {
+    background-color:#44475a;
+}
+
+pre, code {
+    border: #6272a4 1px solid;
+}
+
+.page-description a {
+    color: #8be9fd;
+}
+
+.post-meta {
+    color: #6272a4;
+}
+
+.post {
+    border-bottom: #44475a 1px solid;
+}
+
+article.post {
+    border-bottom: unset;
+}
+
+.post:after {
+    content: unset;
+}
+
+.post-footer {
+    border-top: #44475a 1px solid;
+}
+
+.site-footer {
+    border-top: #44475a 1px solid;
+    color: #44475a;
+}
+
+.share h4 {
+    color: #50fa7b;
+}
+
+.author h4 {
+    color: #ff5555;
+}
+
+@media only screen and (max-width: 500px) {
+    .back-button, .subscribe-button {
+        color:unset;
+    }
+}

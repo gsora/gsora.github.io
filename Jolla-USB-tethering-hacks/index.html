@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Jolla USB tethering hacks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.17" />
+  <link href="" rel="alternate" type="application/rss+xml" title="gsora&#39;s place" />
+  <link href="http://blog.gsora.xyz/css/styles.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+
+     <div class="container">
+
+<header class="masthead">
+  <h3 class="masthead-title"><a href="http://blog.gsora.xyz">gsora&#39;s place</a>
+    <Small><a href="http://blog.gsora.xyz/about">about me</a></small></h3>
+</header>
+<article class="post">
+  <h1 class="post-title">Jolla USB tethering hacks</h1>
+  <time class="post-date">Sun, Jan 4, 2015</time>
+  <p></p>
+
+<p>Run these commands in a terminal, or make a bash script if you often need them!</p>
+
+<p>To turn off simply reboot your Jolla, of course the <em>Developer Mode must be activated before</em>.</p>
+
+<h3 id="3g-connection-usb-tethering">3G connection —&gt; USB tethering</h3>
+
+<pre><code># echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+# /sbin/iptables -t nat -A POSTROUTING -o rmnet0 -j MASQUERADE
+# /sbin/iptables -A FORWARD -i rmnet0 -o rndis0 -m state --state \ RELATED,ESTABLISHED -j ACCEPT
+# /sbin/iptables -A FORWARD -i rndis0 -o rmnet0 -j ACCEPT
+</code></pre>
+
+<h3 id="wifi-connection-usb-tethering">WiFi connection —&gt; USB tethering</h3>
+
+<p>It might seem strange but sometimes when I&rsquo;m in class I need to route the WiFi to my MacBook via USB, specially during some awkward Linux setup.</p>
+
+<pre><code># echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+# /sbin/iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+# /sbin/iptables -A FORWARD -i wlan0 -o rndis0 -m state --state \ RELATED,ESTABLISHED -j ACCEPT
+# /sbin/iptables -A FORWARD -i rndis0 -o wlan0 -j ACCEPT
+</code></pre>
+
+<p>After this, you&rsquo;ll need to set the new interface that popped out on your network manager with a static IP address, because by now Jolla <strong>doesn&rsquo;t</strong> ship with a DHCP server configured to serve addresses to <code>rndis0</code>.</p>
+
+<p>Basically, you need to set an IP in the same area of the one reported under <strong>Settings &gt; System &gt; Developer Mode &gt; USB IP address</strong>.</p>
+
+<p>For example if your Jolla has <code>192.168.2.15</code> reported there, set it as the router, set the machine IP to <code>192.168.2.17</code>, set an appropriated subnet mask which in this case is <code>255.255.0.0</code> and set a DNS server like OpenDNS, `208.67.222$</p>
+
+<p>If for some (even more) strange situation you&rsquo;ll need to do this on OSX, install the latest version of <a href="http://joshuawise.com/horndis#available_versions">HoRNDIS</a>, reboot and configure as explained before.</p>
+</article>
+
+<aside class="related">
+  <h3>Related Posts</h3>
+  <ul class="related-posts">
+         
+
+
+         
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/">Dissecting a fake breadwallet iOS app</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Convert-Arch-Linux-installation-from-MBR/BIOS-to-UEFI/">Convert Arch Linux installation from MBR/BIOS to UEFI</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/">MacBook Pro Retina touchpad on Fedora 23</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/i3wm-Retina-ready/">i3wm Retina-ready</a></li>
+           
+          
+
+
+              </ul>
+  </aside>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gsorasplace';
+    var disqus_identifier = 'http:\/\/blog.gsora.xyz\/Jolla-USB-tethering-hacks\/';
+    var disqus_title = 'Jolla USB tethering hacks';
+    var disqus_url = 'http:\/\/blog.gsora.xyz\/Jolla-USB-tethering-hacks\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</ul>
+
+<footer class="footer">
+  <small style="padding-top:2rem">
+    <p class="text-muted credit">&copy; 2016. All rights reserved. </p>
+    </small>
+</footer>
+</div>
+</body>
+</html>
+

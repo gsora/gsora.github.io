@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gsora&#39;s place</title>
+    <link>http://blog.gsora.xyz/categories/apple-macbook-pro-retina-rmbp-italian/index.xml</link>
+    <description>Recent content on gsora&#39;s place</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.gsora.xyz/categories/apple-macbook-pro-retina-rmbp-italian/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>[Italian] Retina MacBook Pro dopo un anno</title>
+      <link>http://blog.gsora.xyz/Italian-Retina-MacBook-Pro-dopo-un-anno/</link>
+      <pubDate>Sun, 15 Feb 2015 17:30:00 +0000</pubDate>
+      
+      <guid>http://blog.gsora.xyz/Italian-Retina-MacBook-Pro-dopo-un-anno/</guid>
+      <description>&lt;p&gt;Ho comprato il mio rMBP come regalo di Natale 2014, sperando in una nuova macchina pronta a soddisfare la mia necessità di hardware potente, versatilità e facilità di trasporto.&lt;/p&gt;
+
+&lt;p&gt;Ora, dopo un anno, sono pronto a dare il mio giudizio riguardo la macchina in sé ed il software che includono con essa, OS X 10.{9, 10}.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Tralasciando (l&amp;rsquo;eccellente) design, alcune ottime scelte di progettazione e i materiali con cui è costruito, posso facilmente definire questo portatile come una enorme presa in giro nei confronti di chi cerca una macchina per &lt;strong&gt;lavorare&lt;/strong&gt;, non fare l&amp;rsquo;hipster nello Starbucks di turno.&lt;/p&gt;
+
+&lt;p&gt;Apple definisce la linea &lt;em&gt;&amp;ldquo;Pro&amp;rdquo;&lt;/em&gt; come le perfette macchine per produrre contenuti e in generale eseguire tutte quelle operazioni che un utente avanzato necessita di fare in mobilità.&lt;/p&gt;
+
+&lt;p&gt;Il problema è che &lt;strong&gt;qualunque&lt;/strong&gt; revisione ora esistente di questa serie di portatili non riesce nell&amp;rsquo;intento.&lt;/p&gt;
+
+&lt;p&gt;Visto che stiamo parlando di computer, mi sembra giusto tirare fuori qualche dato tecnico, in particolare il mio rMBP ha le seguenti specifiche:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;schermo 13&amp;rdquo; &lt;em&gt;retina&lt;/em&gt; 2560x1600&lt;/li&gt;
+&lt;li&gt;Intel Core i5 4258U&lt;/li&gt;
+&lt;li&gt;8GB di RAM DDR3 1600MHz&lt;/li&gt;
+&lt;li&gt;scheda video Intel Iris&lt;/li&gt;
+&lt;li&gt;SSD 256GB PCI-E&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Come potete notare non è una macchina estremamente potente, ma &lt;em&gt;dovrebbe&lt;/em&gt; essere in grado di reggere con facilità operazioni complesse come molteplici VM in esecuzione, rendering video senza molte pretese e sviluppo software.&lt;/p&gt;
+
+&lt;p&gt;Il problema cruciale è la scelta dello schermo, ed il sistema operativo.&lt;/p&gt;
+
+&lt;p&gt;Tralasciando per un attimo la mia propensione a OS come Linux e ultimamente BSD, OS X nelle sue versioni 10.9 e 10.10 risulta essere il peggior sistema operativo che io abbia mai utilizzato da una decina d&amp;rsquo;anni a questa parte.&lt;/p&gt;
+
+&lt;p&gt;Sento già le vocine in lontananza che mi contraddicono dicendo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;a me va così bene, non capisco perché a te vada così male&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ecco, probabilmente questa persona non ha mai usato un rMBP per più di 10 minuti fuori da uno Store.&lt;/p&gt;
+
+&lt;p&gt;Apple quando ha progettato questa serie di portatili ha completamente dimenticato che anche l&amp;rsquo;OS deve essere adattato per far funzionare tutto al meglio.&lt;/p&gt;
+
+&lt;p&gt;Lasciate che vi spieghi come funziona il sistema HiDPI che Apple ha studiato per rendere al meglio su questi monitor.&lt;/p&gt;
+
+&lt;p&gt;Abbiamo una risoluzione decisamente alta, su uno schermo decisamente piccolo; come fare per rendere utilizzabile questo &lt;em&gt;coso&lt;/em&gt;?&lt;/p&gt;
+
+&lt;p&gt;Moltiplichiamo tutti i componenti grafici per una costante e dividiamo la risoluzione nativa x2!&lt;/p&gt;
+
+&lt;p&gt;Di conseguenza un rMBP appena uscito dalla scatola è un portatile da 13&amp;rdquo; con risoluzione ((2560x1600)/2), quindi 1280x800.&lt;/p&gt;
+
+&lt;p&gt;Poco male, OS X permette all&amp;rsquo;utente di &amp;ldquo;trasformare&amp;rdquo; quella risoluzione (decisamente bassa in termini di spazio in cui lavorare) in qualcosa di più abbordabile per l&amp;rsquo;utente &lt;em&gt;pro&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ora che sappiamo come il sistema operativo gestisce questo losco affare, bisogna introdurre il concetto di &amp;ldquo;risoluzione retina&amp;rdquo; e &amp;ldquo;non-retina&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Una &amp;ldquo;risoluzione retina&amp;rdquo; fa quel giochetto di moltiplicazioni e divisioni che ho illustrato prima, una &amp;ldquo;non-retina&amp;rdquo; invece no, quindi c&amp;rsquo;è il classico effetto blur che si ha quando si imposta una risoluzione supportata ma non ottimale per un monitor.&lt;/p&gt;
+
+&lt;p&gt;Nelle impostazioni dello schermo infatti possiamo decidere di settare&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1280x600&lt;/li&gt;
+&lt;li&gt;1280x800&lt;/li&gt;
+&lt;li&gt;1440x900&lt;/li&gt;
+&lt;li&gt;1680x1050&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;tutte retina.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Il problema non sussiste, alla fine se scala lo farà solo all&amp;rsquo;atto della selezione della risoluzione&amp;rdquo; mi sono detto, prima di comprarlo.&lt;/p&gt;
+
+&lt;h1 id=&#34;einvece&#34;&gt;#einvece.&lt;/h1&gt;
+
+&lt;p&gt;OS X, dall&amp;rsquo;alto della sua intelligenza &lt;strong&gt;scala in tempo reale componenti grafici e non&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In pratica ogni volta che c&amp;rsquo;è da visualizzare qualcosa sullo schermo l&amp;rsquo;OS fa questo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Oggetto da visualizzare -&amp;gt; render alla risoluzione settata come non-retina -&amp;gt; render dell&#39;asset precedente alla risoluzione retina
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Quindi è come se su ogni componente venisse effettuato un rendering in due passaggi facendo calare di molto gli FPS delle animazioni ad esempio, e visto che OS X è &lt;em&gt;pieno&lt;/em&gt; di animazioni il sistema rallenterà.&lt;/p&gt;
+
+&lt;p&gt;Non perché la CPU &amp;ldquo;non è un i7&amp;rdquo;, non perché &amp;ldquo;8GB di RAM sono pochi per gestire un moderno sistema operativo&amp;rdquo;, non perché &amp;ldquo;la GPU è lenta&amp;rdquo;, ma perché l&amp;rsquo;OS è stato programmato &lt;strong&gt;col culo&lt;/strong&gt; sotto questo punto di vista.&lt;/p&gt;
+
+&lt;p&gt;Questo problema non affligge solo i MacBook Pro ma anche i nuovi iMac con schermo retina 5K, la quale risoluzione non è altro che ((2560x1600) *2), 5120x3200.&lt;/p&gt;
+
+&lt;p&gt;Un workaround per questo problema sarebbe settare una risoluzione non-retina, il problema è che OS X non permette di farlo nativamente, bisogna acquistare software come SwitchResX che permette di settare una risoluzione arbitraria ed il problema del blur resta sempre.&lt;/p&gt;
+
+&lt;p&gt;Il problema si manifesta nello scrolling, nel drag, resize e minimizzazione delle finestre, nelle animazioni di cambio workspace, ovunque ci sia una minima animazione.&lt;/p&gt;
+
+&lt;p&gt;Esempio pratico: avete Eclipse, Firefox, Terminal.app, Cyberduck, iTunes aperti, tutti massimizzati e quindi su un proprio workspace.&lt;/p&gt;
+
+&lt;p&gt;Il sistema diventa estremamente lento, personalmente lo ritengo inutilizzabile in sessioni di sviluppo molto lunghe su una risoluzione retina.&lt;/p&gt;
+
+&lt;p&gt;Un altro svantaggio è l&amp;rsquo;eccessivo uso di CPU e RAM: visto che l&amp;rsquo;OS renderizza 2 volte qualsiasi componente grafico, visualizzare un video diventa un&amp;rsquo;impresa visto che le ventole dopo pochi minuti partono subito a 6000+RPM e riescono a malapena a mantenere la CPU sotto i 90°.&lt;/p&gt;
+
+&lt;p&gt;I video YouTube a 60FPS sono praticamente inguardabili, frame drop ogni 2-3 secondi.&lt;/p&gt;
+
+&lt;p&gt;Windows 8.1 al contrario di OS X gestisce in modo diverso gli schermi HiDPI, infatti le animazioni e l&amp;rsquo;interazione col sistema in generale sono fulminee, inattaccabili, riesco addirittura a giocare &lt;strong&gt;Counter-Strike: Global Offensive&lt;/strong&gt; a dettagli medi ad una risoluzione decente, con V-Sync, a 60FPS fissi sulla maggioranza delle mappe.&lt;/p&gt;
+
+&lt;p&gt;Infatti almeno secondo la mia &lt;strong&gt;modesta&lt;/strong&gt; opinione, questo rMBP è una macchina perfetta per far girare Windows.&lt;/p&gt;
+
+&lt;p&gt;OS X è meglio lasciarlo a risoluzioni non-retina per ora, almeno finché Apple non si deciderà a smettere di produrre idiozie piene di bug e feature incomplete in favore di un massivo bugfix sul suo sistema operativo, che osano ancora definire &amp;ldquo;Un nuovo orizzonte di potenza&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;In conclusione, gli schermi retina sono &lt;strong&gt;il bene&lt;/strong&gt; ma l&amp;rsquo;implementazione di Apple è talmente orrida che l&amp;rsquo;intera UX ne risente pesantemente, tanto da rendermi impossibile lavorare e farmi innervosire molto considerando a che prezzo vengono venduti e la pubblicita fasulla che ricevono dai &lt;em&gt;grandi siti di tecnologia americani&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

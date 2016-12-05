@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>[Italian] Retina MacBook Pro dopo un anno</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.17" />
+  <link href="" rel="alternate" type="application/rss+xml" title="gsora&#39;s place" />
+  <link href="http://blog.gsora.xyz/css/styles.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+
+     <div class="container">
+
+<header class="masthead">
+  <h3 class="masthead-title"><a href="http://blog.gsora.xyz">gsora&#39;s place</a>
+    <Small><a href="http://blog.gsora.xyz/about">about me</a></small></h3>
+</header>
+<article class="post">
+  <h1 class="post-title">[Italian] Retina MacBook Pro dopo un anno</h1>
+  <time class="post-date">Sun, Feb 15, 2015</time>
+  <p>Ho comprato il mio rMBP come regalo di Natale 2014, sperando in una nuova macchina pronta a soddisfare la mia necessità di hardware potente, versatilità e facilità di trasporto.</p>
+
+<p>Ora, dopo un anno, sono pronto a dare il mio giudizio riguardo la macchina in sé ed il software che includono con essa, OS X 10.{9, 10}.</p>
+
+<p></p>
+
+<p>Tralasciando (l&rsquo;eccellente) design, alcune ottime scelte di progettazione e i materiali con cui è costruito, posso facilmente definire questo portatile come una enorme presa in giro nei confronti di chi cerca una macchina per <strong>lavorare</strong>, non fare l&rsquo;hipster nello Starbucks di turno.</p>
+
+<p>Apple definisce la linea <em>&ldquo;Pro&rdquo;</em> come le perfette macchine per produrre contenuti e in generale eseguire tutte quelle operazioni che un utente avanzato necessita di fare in mobilità.</p>
+
+<p>Il problema è che <strong>qualunque</strong> revisione ora esistente di questa serie di portatili non riesce nell&rsquo;intento.</p>
+
+<p>Visto che stiamo parlando di computer, mi sembra giusto tirare fuori qualche dato tecnico, in particolare il mio rMBP ha le seguenti specifiche:</p>
+
+<ul>
+<li>schermo 13&rdquo; <em>retina</em> 2560x1600</li>
+<li>Intel Core i5 4258U</li>
+<li>8GB di RAM DDR3 1600MHz</li>
+<li>scheda video Intel Iris</li>
+<li>SSD 256GB PCI-E</li>
+</ul>
+
+<p>Come potete notare non è una macchina estremamente potente, ma <em>dovrebbe</em> essere in grado di reggere con facilità operazioni complesse come molteplici VM in esecuzione, rendering video senza molte pretese e sviluppo software.</p>
+
+<p>Il problema cruciale è la scelta dello schermo, ed il sistema operativo.</p>
+
+<p>Tralasciando per un attimo la mia propensione a OS come Linux e ultimamente BSD, OS X nelle sue versioni 10.9 e 10.10 risulta essere il peggior sistema operativo che io abbia mai utilizzato da una decina d&rsquo;anni a questa parte.</p>
+
+<p>Sento già le vocine in lontananza che mi contraddicono dicendo</p>
+
+<pre><code>&quot;a me va così bene, non capisco perché a te vada così male&quot;.
+</code></pre>
+
+<p>Ecco, probabilmente questa persona non ha mai usato un rMBP per più di 10 minuti fuori da uno Store.</p>
+
+<p>Apple quando ha progettato questa serie di portatili ha completamente dimenticato che anche l&rsquo;OS deve essere adattato per far funzionare tutto al meglio.</p>
+
+<p>Lasciate che vi spieghi come funziona il sistema HiDPI che Apple ha studiato per rendere al meglio su questi monitor.</p>
+
+<p>Abbiamo una risoluzione decisamente alta, su uno schermo decisamente piccolo; come fare per rendere utilizzabile questo <em>coso</em>?</p>
+
+<p>Moltiplichiamo tutti i componenti grafici per una costante e dividiamo la risoluzione nativa x2!</p>
+
+<p>Di conseguenza un rMBP appena uscito dalla scatola è un portatile da 13&rdquo; con risoluzione ((2560x1600)/2), quindi 1280x800.</p>
+
+<p>Poco male, OS X permette all&rsquo;utente di &ldquo;trasformare&rdquo; quella risoluzione (decisamente bassa in termini di spazio in cui lavorare) in qualcosa di più abbordabile per l&rsquo;utente <em>pro</em>.</p>
+
+<p>Ora che sappiamo come il sistema operativo gestisce questo losco affare, bisogna introdurre il concetto di &ldquo;risoluzione retina&rdquo; e &ldquo;non-retina&rdquo;.</p>
+
+<p>Una &ldquo;risoluzione retina&rdquo; fa quel giochetto di moltiplicazioni e divisioni che ho illustrato prima, una &ldquo;non-retina&rdquo; invece no, quindi c&rsquo;è il classico effetto blur che si ha quando si imposta una risoluzione supportata ma non ottimale per un monitor.</p>
+
+<p>Nelle impostazioni dello schermo infatti possiamo decidere di settare</p>
+
+<ul>
+<li>1280x600</li>
+<li>1280x800</li>
+<li>1440x900</li>
+<li>1680x1050</li>
+</ul>
+
+<p>tutte retina.</p>
+
+<p>&ldquo;Il problema non sussiste, alla fine se scala lo farà solo all&rsquo;atto della selezione della risoluzione&rdquo; mi sono detto, prima di comprarlo.</p>
+
+<h1 id="einvece">#einvece.</h1>
+
+<p>OS X, dall&rsquo;alto della sua intelligenza <strong>scala in tempo reale componenti grafici e non</strong>.</p>
+
+<p>In pratica ogni volta che c&rsquo;è da visualizzare qualcosa sullo schermo l&rsquo;OS fa questo:</p>
+
+<pre><code>Oggetto da visualizzare -&gt; render alla risoluzione settata come non-retina -&gt; render dell'asset precedente alla risoluzione retina
+</code></pre>
+
+<p>Quindi è come se su ogni componente venisse effettuato un rendering in due passaggi facendo calare di molto gli FPS delle animazioni ad esempio, e visto che OS X è <em>pieno</em> di animazioni il sistema rallenterà.</p>
+
+<p>Non perché la CPU &ldquo;non è un i7&rdquo;, non perché &ldquo;8GB di RAM sono pochi per gestire un moderno sistema operativo&rdquo;, non perché &ldquo;la GPU è lenta&rdquo;, ma perché l&rsquo;OS è stato programmato <strong>col culo</strong> sotto questo punto di vista.</p>
+
+<p>Questo problema non affligge solo i MacBook Pro ma anche i nuovi iMac con schermo retina 5K, la quale risoluzione non è altro che ((2560x1600) *2), 5120x3200.</p>
+
+<p>Un workaround per questo problema sarebbe settare una risoluzione non-retina, il problema è che OS X non permette di farlo nativamente, bisogna acquistare software come SwitchResX che permette di settare una risoluzione arbitraria ed il problema del blur resta sempre.</p>
+
+<p>Il problema si manifesta nello scrolling, nel drag, resize e minimizzazione delle finestre, nelle animazioni di cambio workspace, ovunque ci sia una minima animazione.</p>
+
+<p>Esempio pratico: avete Eclipse, Firefox, Terminal.app, Cyberduck, iTunes aperti, tutti massimizzati e quindi su un proprio workspace.</p>
+
+<p>Il sistema diventa estremamente lento, personalmente lo ritengo inutilizzabile in sessioni di sviluppo molto lunghe su una risoluzione retina.</p>
+
+<p>Un altro svantaggio è l&rsquo;eccessivo uso di CPU e RAM: visto che l&rsquo;OS renderizza 2 volte qualsiasi componente grafico, visualizzare un video diventa un&rsquo;impresa visto che le ventole dopo pochi minuti partono subito a 6000+RPM e riescono a malapena a mantenere la CPU sotto i 90°.</p>
+
+<p>I video YouTube a 60FPS sono praticamente inguardabili, frame drop ogni 2-3 secondi.</p>
+
+<p>Windows 8.1 al contrario di OS X gestisce in modo diverso gli schermi HiDPI, infatti le animazioni e l&rsquo;interazione col sistema in generale sono fulminee, inattaccabili, riesco addirittura a giocare <strong>Counter-Strike: Global Offensive</strong> a dettagli medi ad una risoluzione decente, con V-Sync, a 60FPS fissi sulla maggioranza delle mappe.</p>
+
+<p>Infatti almeno secondo la mia <strong>modesta</strong> opinione, questo rMBP è una macchina perfetta per far girare Windows.</p>
+
+<p>OS X è meglio lasciarlo a risoluzioni non-retina per ora, almeno finché Apple non si deciderà a smettere di produrre idiozie piene di bug e feature incomplete in favore di un massivo bugfix sul suo sistema operativo, che osano ancora definire &ldquo;Un nuovo orizzonte di potenza&rdquo;.</p>
+
+<p>In conclusione, gli schermi retina sono <strong>il bene</strong> ma l&rsquo;implementazione di Apple è talmente orrida che l&rsquo;intera UX ne risente pesantemente, tanto da rendermi impossibile lavorare e farmi innervosire molto considerando a che prezzo vengono venduti e la pubblicita fasulla che ricevono dai <em>grandi siti di tecnologia americani</em>.</p>
+</article>
+
+<aside class="related">
+  <h3>Related Posts</h3>
+  <ul class="related-posts">
+         
+
+
+         
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/">Dissecting a fake breadwallet iOS app</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Convert-Arch-Linux-installation-from-MBR/BIOS-to-UEFI/">Convert Arch Linux installation from MBR/BIOS to UEFI</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/">MacBook Pro Retina touchpad on Fedora 23</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/i3wm-Retina-ready/">i3wm Retina-ready</a></li>
+           
+          
+
+
+              </ul>
+  </aside>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gsorasplace';
+    var disqus_identifier = 'http:\/\/blog.gsora.xyz\/Italian-Retina-MacBook-Pro-dopo-un-anno\/';
+    var disqus_title = '[Italian] Retina MacBook Pro dopo un anno';
+    var disqus_url = 'http:\/\/blog.gsora.xyz\/Italian-Retina-MacBook-Pro-dopo-un-anno\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</ul>
+
+<footer class="footer">
+  <small style="padding-top:2rem">
+    <p class="text-muted credit">&copy; 2016. All rights reserved. </p>
+    </small>
+</footer>
+</div>
+</body>
+</html>
+

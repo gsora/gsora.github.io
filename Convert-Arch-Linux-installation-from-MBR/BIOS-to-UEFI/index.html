@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Convert Arch Linux installation from MBR/BIOS to UEFI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.17" />
+  <link href="" rel="alternate" type="application/rss+xml" title="gsora&#39;s place" />
+  <link href="http://blog.gsora.xyz/css/styles.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+
+     <div class="container">
+
+<header class="masthead">
+  <h3 class="masthead-title"><a href="http://blog.gsora.xyz">gsora&#39;s place</a>
+    <Small><a href="http://blog.gsora.xyz/about">about me</a></small></h3>
+</header>
+<article class="post">
+  <h1 class="post-title">Convert Arch Linux installation from MBR/BIOS to UEFI</h1>
+  <time class="post-date">Mon, Nov 30, 2015</time>
+  <p>After literally years of notebook-only computing I finally built a nice desktop PC, and since I didn’t had enough money to afford an SSD drive right now, I’m borrowing it from my trusty ThinkPad X61s.</p>
+
+<p>The Arch Linux installation I had there was already configured to fit my needs and I wanted to test the real flexibility this distro have to offer, so I converted it from a MBR/BIOS system to a UEFI one, here’s how I did it using only the Arch installation media.</p>
+
+<p></p>
+
+<h2 id="backup">Backup.</h2>
+
+<p>Always make a backup before doing this kind of things.</p>
+
+<h2 id="analyzing-the-partition-table">Analyzing the partition table</h2>
+
+<p>Start the computer from the Arch installation media in UEFI mode first.</p>
+
+<p>The UEFI system relies on a special partition called <em>”EFI System Partition”</em>, abbreviated in <em><code>ESP</code></em>, where the OS bootloader and often its configuration files resides.</p>
+
+<p>So, the first step is to make room on the disk for this partition.</p>
+
+<p>My partition table was composed of:</p>
+
+<pre><code>/dev/sda1: root filesystem
+/dev/sda2: swap partition
+</code></pre>
+
+<p>Since this new PC have enough RAM already, I simply deleted the swap and extended <code>sda1</code> enough to make a 200MB, <code>ef00</code> type <code>ESP</code> partition.</p>
+
+<h2 id="convert-the-partition-table">Convert the partition table</h2>
+
+<p>To boot with UEFI, you need a <code>gpt</code> partition table and luckily a <code>MBR</code> partition table can become one easily.</p>
+
+<p>Run <code>gdisk /dev/sdX</code>, the software will warn you that if you invoke the <code>w</code> command the partition table will be converted to <code>gpt</code>, and we want exactly that.</p>
+
+<h2 id="follow-the-white-rabbit">Follow the white rabbit</h2>
+
+<p>The last thing to do is pretty much follow the <a href="https://wiki.archlinux.org/index.php/Beginners'_guide">Beginner’s guide</a>:</p>
+
+<ul>
+<li>mount your root filesystem on <code>/mnt</code> but <strong>do not</strong> format it</li>
+<li>create a <code>/mnt/boot/uefi</code> mountpoint</li>
+<li>format your <code>ESP</code> partition with <code>mkfs.vfat /dev/sdX</code></li>
+<li>mount it on the directory created previously</li>
+<li>rebuild your <code>fstab</code> file with <code>genfstab -U /mnt/ &gt; /mnt/etc/fstab</code> to reflect the changes</li>
+<li>chroot in your root</li>
+<li>build a <code>grub.cfg</code> file and then install the bootloader as the guide says.</li>
+</ul>
+
+<p>Done, now your system will boot in UEFI mode!</p>
+</article>
+
+<aside class="related">
+  <h3>Related Posts</h3>
+  <ul class="related-posts">
+         
+
+
+         
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/">Dissecting a fake breadwallet iOS app</a></li>
+           
+          
+
+          
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/">MacBook Pro Retina touchpad on Fedora 23</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/i3wm-Retina-ready/">i3wm Retina-ready</a></li>
+           
+          
+
+
+              </ul>
+  </aside>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gsorasplace';
+    var disqus_identifier = 'http:\/\/blog.gsora.xyz\/Convert-Arch-Linux-installation-from-MBR\/BIOS-to-UEFI\/';
+    var disqus_title = 'Convert Arch Linux installation from MBR\/BIOS to UEFI';
+    var disqus_url = 'http:\/\/blog.gsora.xyz\/Convert-Arch-Linux-installation-from-MBR\/BIOS-to-UEFI\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</ul>
+
+<footer class="footer">
+  <small style="padding-top:2rem">
+    <p class="text-muted credit">&copy; 2016. All rights reserved. </p>
+    </small>
+</footer>
+</div>
+</body>
+</html>
+
