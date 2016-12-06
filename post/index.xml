@@ -30,7 +30,7 @@
 
 &lt;p&gt;These fake versions tend to have the same behaviour: they&amp;rsquo;re almost identical to official apps in both look and functionality, but they steal coins instead.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.gsora.xyz/assets/images/breadywallet-apps.png&#34; alt=&#34;apps&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.gsora.xyz/assets/images/breadywallet-apps.png&#34;&gt;&lt;img src=&#34;http://blog.gsora.xyz/assets/images/breadywallet-apps.png&#34; style=&#34;margin: 0 auto; display: block; width:50%&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;ios-application-reverse-engineering-101&#34;&gt;iOS application reverse engineering 101&lt;/h2&gt;
 
@@ -42,7 +42,7 @@
 
 &lt;p&gt;A quick search on the AppStore for &amp;ldquo;breadwallet&amp;rdquo; gave me this interesting clone called &amp;ldquo;breadywallet&amp;rdquo; (notice the extra &amp;lsquo;y&amp;rsquo;), that appears as &amp;ldquo;Hangman&amp;rdquo; on the SpringBoard.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.gsora.xyz/assets/images/breadywallet-appstore.png&#34; alt=&#34;appstore&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.gsora.xyz/assets/images/breadywallet-appstore.png&#34;&gt;&lt;img src=&#34;http://blog.gsora.xyz/assets/images/breadywallet-appstore.png&#34; style=&#34;margin: 0 auto; display: block; width:50%&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Of course, I already downloaded (and used with much success) the official application on my device.&lt;/p&gt;
 
