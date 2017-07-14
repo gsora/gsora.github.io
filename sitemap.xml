@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.gsora.xyz/</loc>
-    <lastmod>2016-12-06T13:00:59+01:00</lastmod>
+    <loc>http://blog.gsora.xyz/Regarding-WhatsApp-IP-leakage-habit/</loc>
+    <lastmod>2017-07-13T17:30:25+02:00</lastmod>
   </url>
   
   <url>
@@ -49,6 +50,71 @@
   <url>
     <loc>http://blog.gsora.xyz/about/</loc>
     <lastmod>2015-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/apple-macbook-pro-retina-rmbp-italian/</loc>
+    <lastmod>2015-02-15T17:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/</loc>
+    <lastmod>2015-02-15T17:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/fedora-linux-apple-macbook-pro-retina/</loc>
+    <lastmod>2015-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/go-openbsd-amd64-programming-languages-golang/</loc>
+    <lastmod>2015-09-24T22:40:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/ios-security-bitcoin-breadwallet-fake/</loc>
+    <lastmod>2016-08-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/jolla-sailfishos-tethering/</loc>
+    <lastmod>2015-01-04T22:40:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/linux-apple-macbook-pro-retina-i3wm-tiling-wm-tiling-wm/</loc>
+    <lastmod>2015-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/categories/linux-arch-archlinux-pc-mbr-bios-uefi/</loc>
+    <lastmod>2015-11-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/post/</loc>
+    <lastmod>2017-07-13T17:30:25+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.gsora.xyz/</loc>
+    <lastmod>2017-07-13T17:30:25+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

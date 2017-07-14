@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Regarding WhatsApp IP &#34;leakage habit&#34;</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26-DEV" />
+  <link href="" rel="alternate" type="application/rss+xml" title="gsora&#39;s place" />
+  <link href="http://blog.gsora.xyz/css/styles.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+
+     <div class="container">
+
+<header class="masthead">
+  <h3 class="masthead-title"><a href="http://blog.gsora.xyz">gsora&#39;s place</a>
+    <Small><a href="http://blog.gsora.xyz/about">about me</a></small></h3>
+</header>
+<article class="post">
+  <h1 class="post-title">Regarding WhatsApp IP &#34;leakage habit&#34;</h1>
+  <time class="post-date">Thu, Jul 13, 2017</time>
+  <p>Recently <a href="https://twitter.com/cybercdh">Colin Hardy</a> posted a <a href="https://www.youtube.com/watch?v=yELed8lfuRw&amp;feature=youtu.be">video</a> where he demonstrated how the WhatsApp web client leaks the user&rsquo;s IP address when computing URL previews.</p>
+
+<p>All of the sudden the entire web freaked out because of this behavior, while in my opinion there isn&rsquo;t much to be scared of.</p>
+
+<p></p>
+
+<p>Before reading this post, check out Colin&rsquo;s video to see the issue yourself.</p>
+
+<p>From the outside, it might seem that WhatsApp thrown away every possible privacy measure out of the window just because of a cool feature - that nobody even asked for.</p>
+
+<p>There are three main points to make regarding this situation:</p>
+
+<ul>
+<li>if they&rsquo;re employing end-to-end encryption, how it is possible to create URL previews?</li>
+<li>why don&rsquo;t they create them on their servers?</li>
+<li>why are they &ldquo;leaking&rdquo; the user&rsquo;s IP address?</li>
+</ul>
+
+<p>To be honest, I don&rsquo;t think they&rsquo;re leaking anything.</p>
+
+<p>Colin showed how WhatsApp made all the requests needed to create previews on the <strong>client</strong>, which obviously will show its IP in the web server&rsquo;s log along with a custom user agent, exactly like a browser would do.</p>
+
+<p>This kind of &ldquo;privacy concern&rdquo; is not something new, we knew this already: you cannot hide your activity online unless you employ some sort of <strong>VPN</strong>, or <strong>TOR</strong>.</p>
+
+<p>Obviously, the &ldquo;ping the URL for each new character added&rdquo; is <em>not</em> how it should be done, but the situation is the same.</p>
+
+<p>They&rsquo;re <strong>enforcing</strong> E2E encryption but they&rsquo;re adding functionality, while preserving user&rsquo;s messages privacy.</p>
+
+<p>About E2E encryption, <a href="https://en.wikipedia.org/wiki/End-to-end_encryption">Wikipedia</a> says:</p>
+
+<pre><code>End-to-end encryption (E2EE) is a system of communication where only the communicating users can read the messages. In principle, it prevents potential eavesdroppers – including telecom providers, Internet providers, and even the provider of the communication service – from being able to access the cryptographic keys needed to decrypt the conversation.
+</code></pre>
+
+<p>They&rsquo;re not leaking encryption keys, encrypted message blobs or anything, thus E2EE is still there.</p>
+
+<p>To offer this kind of functionality they <strong>need</strong> to have access to the URL in the first place, which <strong>they can&rsquo;t</strong> because of E2EE: they&rsquo;re <em>forced</em> to fetch informations client-side because of the <strong>inability</strong> to read messages server-side.</p>
+
+<p>System administrator will maintain access logs for a variety of reasons, and the fact that WhatsApp is pinging the URL on the client is not something that will lead to a catastrophic privacy violation from them.</p>
+
+<p>The only correlation that you can have with this kind of data is that someone with a given IP address is writing an URL which points to a server you control on a WhatsApp chat.</p>
+
+<p>The worst-case scenario would be a world where every server facing the Internet is controlled and scraped by a global survelliance agency, capable of making more sophisticated correlation than that, but in reality there isn&rsquo;t much use for this metadata.</p>
+
+<p>On the other side of the boat there&rsquo;s <strong>Telegram</strong> - which I use and prefer to WhatsApp - that doesn&rsquo;t &ldquo;leak&rdquo; anything just because their service works in a <em>different</em> way.</p>
+
+<p>Telegram offers standard chats/groups and secret chats - E2EE is present only on the latter.</p>
+
+<p>I&rsquo;ve replicated Colin&rsquo;s experiment with my own server with both chat types and the results were not that surprising:</p>
+
+<ul>
+<li>in standard chats, URL previews are proxied by &ldquo;TelegramBot&rdquo; - since they&rsquo;re not using E2EE here, makes sense</li>
+<li>in secret chats, URL previews are completely disabled</li>
+</ul>
+
+<p>This situation resembles an evergreen in Software Engineering where to offer a service and make the user, trade-offs needs to be made.</p>
+
+<p>This time, they needed the client to make extra requests on behalf of the user.</p>
+
+<p>While Telegram choice is not questionable, neither is WhatsApp&rsquo;s: message content is preserved from evasedropping, which is what really matters.</p>
+</article>
+
+<aside class="related">
+  <h3>Related Posts</h3>
+  <ul class="related-posts">
+         
+
+
+         
+
+          
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Breadfraud-2/">Breadfraud 2!</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/">Dissecting a fake breadwallet iOS app</a></li>
+           
+          
+
+          
+           
+            <li><a href="http://blog.gsora.xyz/Convert-Arch-Linux-installation-from-MBR/BIOS-to-UEFI/">Convert Arch Linux installation from MBR/BIOS to UEFI</a></li>
+           
+          
+
+
+              </ul>
+  </aside>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gsorasplace" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</ul>
+
+<footer class="footer">
+  <small style="padding-top:2rem">
+    <p class="text-muted credit">&copy; 2017. All rights reserved. </p>
+    </small>
+</footer>
+</div>
+</body>
+</html>
+

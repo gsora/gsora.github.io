@@ -6,7 +6,7 @@
   <title>About me</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.17" />
+  <meta name="generator" content="Hugo 0.26-DEV" />
   <link href="" rel="alternate" type="application/rss+xml" title="gsora&#39;s place" />
   <link href="http://blog.gsora.xyz/css/styles.css" rel="stylesheet">
   
@@ -59,6 +59,12 @@
 
           
            
+            <li><a href="http://blog.gsora.xyz/Regarding-WhatsApp-IP-leakage-habit/">Regarding WhatsApp IP &#34;leakage habit&#34;</a></li>
+           
+          
+
+          
+           
             <li><a href="http://blog.gsora.xyz/Breadfraud-2/">Breadfraud 2!</a></li>
            
           
@@ -75,26 +81,25 @@
            
           
 
-          
-           
-            <li><a href="http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/">MacBook Pro Retina touchpad on Fedora 23</a></li>
-           
-          
-
 
               </ul>
   </aside>
     <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'gsorasplace';
-    var disqus_identifier = 'http:\/\/blog.gsora.xyz\/about\/';
-    var disqus_title = 'About me';
-    var disqus_url = 'http:\/\/blog.gsora.xyz\/about\/';
-
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gsorasplace" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -104,7 +109,7 @@
 
 <footer class="footer">
   <small style="padding-top:2rem">
-    <p class="text-muted credit">&copy; 2016. All rights reserved. </p>
+    <p class="text-muted credit">&copy; 2017. All rights reserved. </p>
     </small>
 </footer>
 </div>

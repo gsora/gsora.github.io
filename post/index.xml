@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post-rsses on gsora&#39;s place</title>
-    <link>http://blog.gsora.xyz/post/index.xml</link>
-    <description>Recent content in Post-rsses on gsora&#39;s place</description>
+    <title>Posts on gsora&#39;s place</title>
+    <link>http://blog.gsora.xyz/post/</link>
+    <description>Recent content in Posts on gsora&#39;s place</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Dec 2016 13:00:59 +0100</lastBuildDate>
-    <atom:link href="http://blog.gsora.xyz/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jul 2017 17:30:25 +0200</lastBuildDate>
+    
+	<atom:link href="http://blog.gsora.xyz/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regarding WhatsApp IP &#34;leakage habit&#34;</title>
+      <link>http://blog.gsora.xyz/Regarding-WhatsApp-IP-leakage-habit/</link>
+      <pubDate>Thu, 13 Jul 2017 17:30:25 +0200</pubDate>
+      
+      <guid>http://blog.gsora.xyz/Regarding-WhatsApp-IP-leakage-habit/</guid>
+      <description>&lt;p&gt;Recently &lt;a href=&#34;https://twitter.com/cybercdh&#34;&gt;Colin Hardy&lt;/a&gt; posted a &lt;a href=&#34;https://www.youtube.com/watch?v=yELed8lfuRw&amp;amp;feature=youtu.be&#34;&gt;video&lt;/a&gt; where he demonstrated how the WhatsApp web client leaks the user&amp;rsquo;s IP address when computing URL previews.&lt;/p&gt;
+
+&lt;p&gt;All of the sudden the entire web freaked out because of this behavior, while in my opinion there isn&amp;rsquo;t much to be scared of.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Breadfraud 2!</title>
@@ -17,15 +32,7 @@
       <guid>http://blog.gsora.xyz/Breadfraud-2/</guid>
       <description>&lt;p&gt;Seems like someone is still trying to scam innocent Bitcoin users through fake Breadwallet clones published on the Apple AppStore.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;This time, they got smarter: they&amp;rsquo;re using a number of destination addresses instead of one, thus doing some kind of &amp;ldquo;mixing&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;But still they&amp;rsquo;re hardcoding them in plain C strings, so the method I used in my &lt;a href=&#34;http://blog.gsora.xyz/Dissecting-a-fake-breadwallet-iOS-app/&#34;&gt;first post&lt;/a&gt; is still working :-)&lt;/p&gt;
-
-&lt;p&gt;This time, you can find all the data I worked on on my &lt;a href=&#34;https://github.com/gsora/btcfraud-2&#34;&gt;GitHub&lt;/a&gt;, unencrypted binaries included!&lt;/p&gt;
-
-&lt;p&gt;Have fun!&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -37,158 +44,7 @@
       <description>&lt;pre&gt;&lt;code&gt;Disclaimer: I do not work for breadwallet, anything you&#39;ll read in this article is not endorsed by them; I am fairly new to mobile app security too, so expect errors.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Bitcoin is a nice way of thinking about money: you&amp;rsquo;re your bank, anyone knows anything about your assets and vice versa, it&amp;rsquo;s decentralized.&lt;/p&gt;
-
-&lt;p&gt;But since you&amp;rsquo;re the only one responsible for your money, a single error can - and &lt;em&gt;will&lt;/em&gt; - lead to bad consequences.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;Today I&amp;rsquo;ll talk about this last part because since the beginning of August 2016, someone is trying to scam iOS Bitcoin holders - often newcomers - faking one of the most used wallet on this platform, &lt;strong&gt;breadwallet&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;iOS is a fairly secure platform, but this fake entity found a method to circumvent the AppStore app review process, uploading many fraudolent version of breadwallet.&lt;/p&gt;
-
-&lt;p&gt;These fake versions tend to have the same behaviour: they&amp;rsquo;re almost identical to official apps in both look and functionality, but they steal coins instead.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.gsora.xyz/assets/images/breadywallet-apps.png&#34;&gt;&lt;img src=&#34;http://blog.gsora.xyz/assets/images/breadywallet-apps.png&#34; style=&#34;margin: 0 auto; display: block; width:50%&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;ios-application-reverse-engineering-101&#34;&gt;iOS application reverse engineering 101&lt;/h2&gt;
-
-&lt;p&gt;Reversing a binary built for iOS isn&amp;rsquo;t a straightforward process, because Apple encrypts every binary they push on the AppStore.&lt;/p&gt;
-
-&lt;p&gt;To be able to reverse anything, the first thing to do is proceed to jailbreak a physical iOS device - in this case I used an iPhone 6s.&lt;/p&gt;
-
-&lt;p&gt;This way it&amp;rsquo;s far more easier to decrypt a packaged AppStore binary, and it&amp;rsquo;s possible to take a look to what the application does on the device itself: since I&amp;rsquo;m looking for anomalies, better look everywhere.&lt;/p&gt;
-
-&lt;p&gt;A quick search on the AppStore for &amp;ldquo;breadwallet&amp;rdquo; gave me this interesting clone called &amp;ldquo;breadywallet&amp;rdquo; (notice the extra &amp;lsquo;y&amp;rsquo;), that appears as &amp;ldquo;Hangman&amp;rdquo; on the SpringBoard.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.gsora.xyz/assets/images/breadywallet-appstore.png&#34;&gt;&lt;img src=&#34;http://blog.gsora.xyz/assets/images/breadywallet-appstore.png&#34; style=&#34;margin: 0 auto; display: block; width:50%&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Of course, I already downloaded (and used with much success) the official application on my device.&lt;/p&gt;
-
-&lt;p&gt;To decrypt an AppStore binary I used the excellent &lt;a href=&#34;https://github.com/KJCracks/Clutch&#34;&gt;Clutch&lt;/a&gt;, as suggested by the &lt;a href=&#34;http://iphonedevwiki.net/index.php/Reverse_Engineering_Tools#Clutch&#34;&gt;iPhoneDevWiki&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;AppStore binaries are placed in &lt;code&gt;/var/containers/Bundle/Application&lt;/code&gt;, but the folders containing actual binaries are renamed after an UUID - a quick bash oneliner can help us find the wallets:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;iDjentleman:~ root# find /private/var/containers/Bundle/Application -maxdepth 2 -type d -name &amp;quot;*wallet.app&amp;quot; -exec echo {} \;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Running this command will reveal something interesting:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/private/var/containers/Bundle/Application/4F76E2BF-3A60-4349-B8CA-52B808108981/breadwallet.app
-
-/private/var/containers/Bundle/Application/BB79C9DE-BBA9-4B39-B959-E085EEC67682/breadwallet.app
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;How can we distinguish between the fake app and the official one?&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;Every iOS application embeds a metadata file - &lt;code&gt;iTunesMetadata.plist&lt;/code&gt;; using &lt;code&gt;plutil&lt;/code&gt; we can check for the software Bundle ID (which should be unique for every application on the AppStore):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cd /private/var/containers/Bundle/Application/4F76E2BF-3A60-4349-B8CA-52B808108981/
-# plutil iTunesMetadata.plist | grep softwareVersionBundleId
-    softwareVersionBundleId = breadywallet;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Oh! Looks like we found the impostor!&lt;/p&gt;
-
-&lt;p&gt;After installing Clutch on the device, decrypting the binary is a matter of seconds:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;iDjentleman:~ root# ./clutch  -b breadywallet
-ASLR slide: 0x1000b8000
-Dumping &amp;lt;breadwallet&amp;gt; (arm64)
-Patched cryptid (64bit segment)
-Writing new checksum
-Finished dumping breadywallet to /var/tmp/clutch/4B395DF4-9644-4A5D-8F03-4F2494FF6FB2
-Finished dumping breadywallet in 0.9 seconds
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Clutch only managed to decrypt the arm64 build because my iPhone is on iOS 9.3.2 and this major release introduced Bitcode.&lt;/p&gt;
-
-&lt;p&gt;Bitcode permits building IPAs specifically tailored for each iOS device Apple currently supports, including in the binary only the correct architecture for each of them - since I&amp;rsquo;m on an arm64 device, the only segment Clutch found was the 64-bit one.&lt;/p&gt;
-
-&lt;p&gt;I decrypted the real breadwallet too, for the sake of comparison.&lt;/p&gt;
-
-&lt;p&gt;All these operations have been executed via SSH directly on the device, now we can take the reverse engineering process on a PC.&lt;/p&gt;
-
-&lt;h2 id=&#34;a-rough-idea&#34;&gt;A rough idea&lt;/h2&gt;
-
-&lt;p&gt;My first thought was:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;this rogue app steals Bitcoin but at the same time it&#39;s a totally legit wallet too, so it&#39;s working using the breadwallet&#39;s methods and functions to send coins to a wallet controlled by the offender.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;this means the faker could have &amp;ldquo;engraved&amp;rdquo; this address in the binary.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;strings&lt;/code&gt; to the rescue!&lt;/p&gt;
-
-&lt;p&gt;A Bitcoin wallet address is simple&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;its length goes from a minimum of 25 characters, to a max of 35&lt;/li&gt;
-&lt;li&gt;it starts with a &amp;ldquo;1&amp;rdquo; or a &amp;ldquo;3&amp;rdquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Again, bash will help us achieve what we need:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-for line in $(cat $1); do 
-	if [[ ${#line} -ge 26 &amp;amp;&amp;amp; ${#line} -le 35 ]]; then
-		if [[ $line == 1* || $line == 3*  ]]; then
-			echo $line
-		fi
-	fi
-done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Running this script against the strings we took earlier, somethings pops out:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;12HzbRzNumLxnRxNY72eosNBC98bWHwE85
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A Bitcoin address!&lt;/p&gt;
-
-&lt;h2 id=&#34;sneaky-beaky-like&#34;&gt;Sneaky-beaky like&lt;/h2&gt;
-
-&lt;p&gt;There&amp;rsquo;s a major difference between the legit binary and the fake one: a method.&lt;/p&gt;
-
-&lt;p&gt;All the interesting action happends inside the &lt;code&gt;BRSendViewController&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;p&gt;Inside the fake breadwallet there&amp;rsquo;s a method called &lt;code&gt;makeTest&lt;/code&gt;, which have an almost identical flow compared to the legit &lt;code&gt;payToClipboard&lt;/code&gt;; this last method basically send a fixed amount of coins to the address the OS clipboard contains.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;makeTest&lt;/code&gt; does something similar: it creates a payment request for the fraud address instead of the one contained into &lt;code&gt;payToClipboard&lt;/code&gt;, then displays a fake error message:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Wallet decryption error, check phone for unwanted programs&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;tricking the user into thinking his/her phone has been hacked.&lt;/p&gt;
-
-&lt;p&gt;When the payment view will be presented, &lt;code&gt;makeTest&lt;/code&gt; will be called.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
-
-&lt;p&gt;Using a common blockchain explorer we can clearly see that this address was not used until the 1st of August 2016; during the period between its first transaction and the 13 of August, this address accumulated &lt;em&gt;~47BTC&lt;/em&gt;, and withdrawn everything to multiple addresses the 12 of August.&lt;/p&gt;
-
-&lt;p&gt;At the current exchange value, 47BTC can be converted to about &lt;em&gt;27k$&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;breadwallet is &lt;a href=&#34;https://github.com/voisine/breadwallet/&#34;&gt;open source&lt;/a&gt;, this means the faker blindly cloned the repository and didn&amp;rsquo;t even bothered changing the UI at all, but just the bundle ID and the SpringBoard app name.&lt;/p&gt;
-
-&lt;p&gt;This means Apple doesn&amp;rsquo;t put a lot of efforts into the app review process, just a single letter changed in the name and boom, goes directly on the AppStore!&lt;/p&gt;
-
-&lt;p&gt;The review process for this kind of app (and all the Finance ones, too), needs to be completely renewed, putting more effort into finding dupes and fakes.&lt;/p&gt;
-
-&lt;p&gt;Yesterday (12 August), Apple removed the application from their stores worldwide, but I think a new fake will come up soon.&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;Mt.Gox anyone?
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;More chaos for the end-user is advisable in this situation, I guess.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;&lt;a href=&#34;https://en.bitcoin.it/wiki/Address&#34;&gt;ref&lt;/a&gt;; the method I describe here doesn&amp;rsquo;t 100% validate an address
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -201,49 +57,7 @@ done
 
 &lt;p&gt;The Arch Linux installation I had there was already configured to fit my needs and I wanted to test the real flexibility this distro have to offer, so I converted it from a MBR/BIOS system to a UEFI one, here’s how I did it using only the Arch installation media.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;backup&#34;&gt;Backup.&lt;/h2&gt;
-
-&lt;p&gt;Always make a backup before doing this kind of things.&lt;/p&gt;
-
-&lt;h2 id=&#34;analyzing-the-partition-table&#34;&gt;Analyzing the partition table&lt;/h2&gt;
-
-&lt;p&gt;Start the computer from the Arch installation media in UEFI mode first.&lt;/p&gt;
-
-&lt;p&gt;The UEFI system relies on a special partition called &lt;em&gt;”EFI System Partition”&lt;/em&gt;, abbreviated in &lt;em&gt;&lt;code&gt;ESP&lt;/code&gt;&lt;/em&gt;, where the OS bootloader and often its configuration files resides.&lt;/p&gt;
-
-&lt;p&gt;So, the first step is to make room on the disk for this partition.&lt;/p&gt;
-
-&lt;p&gt;My partition table was composed of:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/dev/sda1: root filesystem
-/dev/sda2: swap partition
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Since this new PC have enough RAM already, I simply deleted the swap and extended &lt;code&gt;sda1&lt;/code&gt; enough to make a 200MB, &lt;code&gt;ef00&lt;/code&gt; type &lt;code&gt;ESP&lt;/code&gt; partition.&lt;/p&gt;
-
-&lt;h2 id=&#34;convert-the-partition-table&#34;&gt;Convert the partition table&lt;/h2&gt;
-
-&lt;p&gt;To boot with UEFI, you need a &lt;code&gt;gpt&lt;/code&gt; partition table and luckily a &lt;code&gt;MBR&lt;/code&gt; partition table can become one easily.&lt;/p&gt;
-
-&lt;p&gt;Run &lt;code&gt;gdisk /dev/sdX&lt;/code&gt;, the software will warn you that if you invoke the &lt;code&gt;w&lt;/code&gt; command the partition table will be converted to &lt;code&gt;gpt&lt;/code&gt;, and we want exactly that.&lt;/p&gt;
-
-&lt;h2 id=&#34;follow-the-white-rabbit&#34;&gt;Follow the white rabbit&lt;/h2&gt;
-
-&lt;p&gt;The last thing to do is pretty much follow the &lt;a href=&#34;https://wiki.archlinux.org/index.php/Beginners&#39;_guide&#34;&gt;Beginner’s guide&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;mount your root filesystem on &lt;code&gt;/mnt&lt;/code&gt; but &lt;strong&gt;do not&lt;/strong&gt; format it&lt;/li&gt;
-&lt;li&gt;create a &lt;code&gt;/mnt/boot/uefi&lt;/code&gt; mountpoint&lt;/li&gt;
-&lt;li&gt;format your &lt;code&gt;ESP&lt;/code&gt; partition with &lt;code&gt;mkfs.vfat /dev/sdX&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;mount it on the directory created previously&lt;/li&gt;
-&lt;li&gt;rebuild your &lt;code&gt;fstab&lt;/code&gt; file with &lt;code&gt;genfstab -U /mnt/ &amp;gt; /mnt/etc/fstab&lt;/code&gt; to reflect the changes&lt;/li&gt;
-&lt;li&gt;chroot in your root&lt;/li&gt;
-&lt;li&gt;build a &lt;code&gt;grub.cfg&lt;/code&gt; file and then install the bootloader as the guide says.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Done, now your system will boot in UEFI mode!&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -254,25 +68,7 @@ done
       <guid>http://blog.gsora.xyz/MacBook-Pro-Retina-touchpad-on-Fedora-23/</guid>
       <description>&lt;p&gt;Fedora 23 is working great on my 13&amp;rdquo; MacBook Pro Retina but the Synaptics&amp;rsquo;s touchpad driver is lacking gestures and palm/thumb recognize support.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;To enable something that can be called &amp;ldquo;gestures&amp;rdquo;, the &lt;code&gt;mtrack&lt;/code&gt; driver can be installed and tweaked at our desire.&lt;/p&gt;
-
-&lt;p&gt;Since it&amp;rsquo;s not available already build, I wrote a &lt;code&gt;spec&lt;/code&gt; that will download and build the &lt;code&gt;rpm&lt;/code&gt; for you&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ wget https://goo.gl/89Fu0R
-$ rpmbuild -ba xorg-x11-drv-mtrack-git.spec
-$ rpm -ivh ~/rpmbuild/RPMS/xorg-x11-drv-mtrack*
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Once done, uninstall the Synaptics driver:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf remove xorg-x11-drv-synaptics
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gist.github.com/32d6de025481698c9ea8&#34;&gt;This&lt;/a&gt; is my configuration, place it into &lt;code&gt;/etc/X11/xorg.conf.d/20-mtrack.conf&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Happy scrolling!&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -285,15 +81,7 @@ $ rpm -ivh ~/rpmbuild/RPMS/xorg-x11-drv-mtrack*
 
 &lt;p&gt;This is changing today.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Since both GTK+ 3 and QT 5 now have good HiDPI support, setting &lt;code&gt;Xft.dpi: 192&lt;/code&gt; into the &lt;code&gt;.Xresources&lt;/code&gt; file makes sure all applications written using these two frameworks will scale properly on the display.&lt;/p&gt;
-
-&lt;p&gt;You have to set the i3 font to exactly 2 times your desidered size, for example &amp;ldquo;Droid Sans 10&amp;rdquo; will become &amp;ldquo;Droid Sans 20&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/gsora/i3-retina&#34;&gt;Here&lt;/a&gt; you can find my i3 configuration for this machine.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/YZ6KtEf.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -304,21 +92,7 @@ $ rpm -ivh ~/rpmbuild/RPMS/xorg-x11-drv-mtrack*
       <guid>http://blog.gsora.xyz/Build-Go-1.5.x-on-OpenBSD-5.7-amd64/</guid>
       <description>&lt;p&gt;Building Go from scratch on OpenBSD is a little bit tricky.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Since the Go toolchain is completely written in Go itself, you need a Go compiler to start from.&lt;/p&gt;
-
-&lt;p&gt;Luckily, OpenBSD 5.7&amp;rsquo;s repositories already include Go 1.4.1, but for some strange reason launching the script which builds and run all the tests against the newly built release fails to find a valid &lt;code&gt;$GOROOT_BOOTSTRAP&lt;/code&gt; path.&lt;/p&gt;
-
-&lt;p&gt;A little workaround I found is to symlink &lt;code&gt;go&lt;/code&gt; and &lt;code&gt;gofmt&lt;/code&gt; binaries to a fake &lt;code&gt;bin&lt;/code&gt; folder inside &lt;code&gt;/usr/local/go/&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mkdir /usr/local/go/bin
-# ln -s /usr/local/bin/go /usr/local/go/bin/go
-# ln -s /usr/local/bin/gofmt /usr/local/go/bin/gofmt
-# export GOROOT_BOOTSTRAP=/usr/local/go/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After this trick, proceed as seen &lt;a href=&#34;https://golang.org/doc/install/source&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -331,100 +105,7 @@ $ rpm -ivh ~/rpmbuild/RPMS/xorg-x11-drv-mtrack*
 
 &lt;p&gt;Ora, dopo un anno, sono pronto a dare il mio giudizio riguardo la macchina in sé ed il software che includono con essa, OS X 10.{9, 10}.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Tralasciando (l&amp;rsquo;eccellente) design, alcune ottime scelte di progettazione e i materiali con cui è costruito, posso facilmente definire questo portatile come una enorme presa in giro nei confronti di chi cerca una macchina per &lt;strong&gt;lavorare&lt;/strong&gt;, non fare l&amp;rsquo;hipster nello Starbucks di turno.&lt;/p&gt;
-
-&lt;p&gt;Apple definisce la linea &lt;em&gt;&amp;ldquo;Pro&amp;rdquo;&lt;/em&gt; come le perfette macchine per produrre contenuti e in generale eseguire tutte quelle operazioni che un utente avanzato necessita di fare in mobilità.&lt;/p&gt;
-
-&lt;p&gt;Il problema è che &lt;strong&gt;qualunque&lt;/strong&gt; revisione ora esistente di questa serie di portatili non riesce nell&amp;rsquo;intento.&lt;/p&gt;
-
-&lt;p&gt;Visto che stiamo parlando di computer, mi sembra giusto tirare fuori qualche dato tecnico, in particolare il mio rMBP ha le seguenti specifiche:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;schermo 13&amp;rdquo; &lt;em&gt;retina&lt;/em&gt; 2560x1600&lt;/li&gt;
-&lt;li&gt;Intel Core i5 4258U&lt;/li&gt;
-&lt;li&gt;8GB di RAM DDR3 1600MHz&lt;/li&gt;
-&lt;li&gt;scheda video Intel Iris&lt;/li&gt;
-&lt;li&gt;SSD 256GB PCI-E&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Come potete notare non è una macchina estremamente potente, ma &lt;em&gt;dovrebbe&lt;/em&gt; essere in grado di reggere con facilità operazioni complesse come molteplici VM in esecuzione, rendering video senza molte pretese e sviluppo software.&lt;/p&gt;
-
-&lt;p&gt;Il problema cruciale è la scelta dello schermo, ed il sistema operativo.&lt;/p&gt;
-
-&lt;p&gt;Tralasciando per un attimo la mia propensione a OS come Linux e ultimamente BSD, OS X nelle sue versioni 10.9 e 10.10 risulta essere il peggior sistema operativo che io abbia mai utilizzato da una decina d&amp;rsquo;anni a questa parte.&lt;/p&gt;
-
-&lt;p&gt;Sento già le vocine in lontananza che mi contraddicono dicendo&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;quot;a me va così bene, non capisco perché a te vada così male&amp;quot;.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ecco, probabilmente questa persona non ha mai usato un rMBP per più di 10 minuti fuori da uno Store.&lt;/p&gt;
-
-&lt;p&gt;Apple quando ha progettato questa serie di portatili ha completamente dimenticato che anche l&amp;rsquo;OS deve essere adattato per far funzionare tutto al meglio.&lt;/p&gt;
-
-&lt;p&gt;Lasciate che vi spieghi come funziona il sistema HiDPI che Apple ha studiato per rendere al meglio su questi monitor.&lt;/p&gt;
-
-&lt;p&gt;Abbiamo una risoluzione decisamente alta, su uno schermo decisamente piccolo; come fare per rendere utilizzabile questo &lt;em&gt;coso&lt;/em&gt;?&lt;/p&gt;
-
-&lt;p&gt;Moltiplichiamo tutti i componenti grafici per una costante e dividiamo la risoluzione nativa x2!&lt;/p&gt;
-
-&lt;p&gt;Di conseguenza un rMBP appena uscito dalla scatola è un portatile da 13&amp;rdquo; con risoluzione ((2560x1600)/2), quindi 1280x800.&lt;/p&gt;
-
-&lt;p&gt;Poco male, OS X permette all&amp;rsquo;utente di &amp;ldquo;trasformare&amp;rdquo; quella risoluzione (decisamente bassa in termini di spazio in cui lavorare) in qualcosa di più abbordabile per l&amp;rsquo;utente &lt;em&gt;pro&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Ora che sappiamo come il sistema operativo gestisce questo losco affare, bisogna introdurre il concetto di &amp;ldquo;risoluzione retina&amp;rdquo; e &amp;ldquo;non-retina&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Una &amp;ldquo;risoluzione retina&amp;rdquo; fa quel giochetto di moltiplicazioni e divisioni che ho illustrato prima, una &amp;ldquo;non-retina&amp;rdquo; invece no, quindi c&amp;rsquo;è il classico effetto blur che si ha quando si imposta una risoluzione supportata ma non ottimale per un monitor.&lt;/p&gt;
-
-&lt;p&gt;Nelle impostazioni dello schermo infatti possiamo decidere di settare&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1280x600&lt;/li&gt;
-&lt;li&gt;1280x800&lt;/li&gt;
-&lt;li&gt;1440x900&lt;/li&gt;
-&lt;li&gt;1680x1050&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;tutte retina.&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;Il problema non sussiste, alla fine se scala lo farà solo all&amp;rsquo;atto della selezione della risoluzione&amp;rdquo; mi sono detto, prima di comprarlo.&lt;/p&gt;
-
-&lt;h1 id=&#34;einvece&#34;&gt;#einvece.&lt;/h1&gt;
-
-&lt;p&gt;OS X, dall&amp;rsquo;alto della sua intelligenza &lt;strong&gt;scala in tempo reale componenti grafici e non&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;In pratica ogni volta che c&amp;rsquo;è da visualizzare qualcosa sullo schermo l&amp;rsquo;OS fa questo:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Oggetto da visualizzare -&amp;gt; render alla risoluzione settata come non-retina -&amp;gt; render dell&#39;asset precedente alla risoluzione retina
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Quindi è come se su ogni componente venisse effettuato un rendering in due passaggi facendo calare di molto gli FPS delle animazioni ad esempio, e visto che OS X è &lt;em&gt;pieno&lt;/em&gt; di animazioni il sistema rallenterà.&lt;/p&gt;
-
-&lt;p&gt;Non perché la CPU &amp;ldquo;non è un i7&amp;rdquo;, non perché &amp;ldquo;8GB di RAM sono pochi per gestire un moderno sistema operativo&amp;rdquo;, non perché &amp;ldquo;la GPU è lenta&amp;rdquo;, ma perché l&amp;rsquo;OS è stato programmato &lt;strong&gt;col culo&lt;/strong&gt; sotto questo punto di vista.&lt;/p&gt;
-
-&lt;p&gt;Questo problema non affligge solo i MacBook Pro ma anche i nuovi iMac con schermo retina 5K, la quale risoluzione non è altro che ((2560x1600) *2), 5120x3200.&lt;/p&gt;
-
-&lt;p&gt;Un workaround per questo problema sarebbe settare una risoluzione non-retina, il problema è che OS X non permette di farlo nativamente, bisogna acquistare software come SwitchResX che permette di settare una risoluzione arbitraria ed il problema del blur resta sempre.&lt;/p&gt;
-
-&lt;p&gt;Il problema si manifesta nello scrolling, nel drag, resize e minimizzazione delle finestre, nelle animazioni di cambio workspace, ovunque ci sia una minima animazione.&lt;/p&gt;
-
-&lt;p&gt;Esempio pratico: avete Eclipse, Firefox, Terminal.app, Cyberduck, iTunes aperti, tutti massimizzati e quindi su un proprio workspace.&lt;/p&gt;
-
-&lt;p&gt;Il sistema diventa estremamente lento, personalmente lo ritengo inutilizzabile in sessioni di sviluppo molto lunghe su una risoluzione retina.&lt;/p&gt;
-
-&lt;p&gt;Un altro svantaggio è l&amp;rsquo;eccessivo uso di CPU e RAM: visto che l&amp;rsquo;OS renderizza 2 volte qualsiasi componente grafico, visualizzare un video diventa un&amp;rsquo;impresa visto che le ventole dopo pochi minuti partono subito a 6000+RPM e riescono a malapena a mantenere la CPU sotto i 90°.&lt;/p&gt;
-
-&lt;p&gt;I video YouTube a 60FPS sono praticamente inguardabili, frame drop ogni 2-3 secondi.&lt;/p&gt;
-
-&lt;p&gt;Windows 8.1 al contrario di OS X gestisce in modo diverso gli schermi HiDPI, infatti le animazioni e l&amp;rsquo;interazione col sistema in generale sono fulminee, inattaccabili, riesco addirittura a giocare &lt;strong&gt;Counter-Strike: Global Offensive&lt;/strong&gt; a dettagli medi ad una risoluzione decente, con V-Sync, a 60FPS fissi sulla maggioranza delle mappe.&lt;/p&gt;
-
-&lt;p&gt;Infatti almeno secondo la mia &lt;strong&gt;modesta&lt;/strong&gt; opinione, questo rMBP è una macchina perfetta per far girare Windows.&lt;/p&gt;
-
-&lt;p&gt;OS X è meglio lasciarlo a risoluzioni non-retina per ora, almeno finché Apple non si deciderà a smettere di produrre idiozie piene di bug e feature incomplete in favore di un massivo bugfix sul suo sistema operativo, che osano ancora definire &amp;ldquo;Un nuovo orizzonte di potenza&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;In conclusione, gli schermi retina sono &lt;strong&gt;il bene&lt;/strong&gt; ma l&amp;rsquo;implementazione di Apple è talmente orrida che l&amp;rsquo;intera UX ne risente pesantemente, tanto da rendermi impossibile lavorare e farmi innervosire molto considerando a che prezzo vengono venduti e la pubblicita fasulla che ricevono dai &lt;em&gt;grandi siti di tecnologia americani&lt;/em&gt;.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -433,37 +114,7 @@ $ rpm -ivh ~/rpmbuild/RPMS/xorg-x11-drv-mtrack*
       <pubDate>Sun, 04 Jan 2015 22:40:37 +0000</pubDate>
       
       <guid>http://blog.gsora.xyz/Jolla-USB-tethering-hacks/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Run these commands in a terminal, or make a bash script if you often need them!&lt;/p&gt;
-
-&lt;p&gt;To turn off simply reboot your Jolla, of course the &lt;em&gt;Developer Mode must be activated before&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;3g-connection-usb-tethering&#34;&gt;3G connection —&amp;gt; USB tethering&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-# /sbin/iptables -t nat -A POSTROUTING -o rmnet0 -j MASQUERADE
-# /sbin/iptables -A FORWARD -i rmnet0 -o rndis0 -m state --state \ RELATED,ESTABLISHED -j ACCEPT
-# /sbin/iptables -A FORWARD -i rndis0 -o rmnet0 -j ACCEPT
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;wifi-connection-usb-tethering&#34;&gt;WiFi connection —&amp;gt; USB tethering&lt;/h3&gt;
-
-&lt;p&gt;It might seem strange but sometimes when I&amp;rsquo;m in class I need to route the WiFi to my MacBook via USB, specially during some awkward Linux setup.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-# /sbin/iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
-# /sbin/iptables -A FORWARD -i wlan0 -o rndis0 -m state --state \ RELATED,ESTABLISHED -j ACCEPT
-# /sbin/iptables -A FORWARD -i rndis0 -o wlan0 -j ACCEPT
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After this, you&amp;rsquo;ll need to set the new interface that popped out on your network manager with a static IP address, because by now Jolla &lt;strong&gt;doesn&amp;rsquo;t&lt;/strong&gt; ship with a DHCP server configured to serve addresses to &lt;code&gt;rndis0&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Basically, you need to set an IP in the same area of the one reported under &lt;strong&gt;Settings &amp;gt; System &amp;gt; Developer Mode &amp;gt; USB IP address&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;For example if your Jolla has &lt;code&gt;192.168.2.15&lt;/code&gt; reported there, set it as the router, set the machine IP to &lt;code&gt;192.168.2.17&lt;/code&gt;, set an appropriated subnet mask which in this case is &lt;code&gt;255.255.0.0&lt;/code&gt; and set a DNS server like OpenDNS, `208.67.222$&lt;/p&gt;
-
-&lt;p&gt;If for some (even more) strange situation you&amp;rsquo;ll need to do this on OSX, install the latest version of &lt;a href=&#34;http://joshuawise.com/horndis#available_versions&#34;&gt;HoRNDIS&lt;/a&gt;, reboot and configure as explained before.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

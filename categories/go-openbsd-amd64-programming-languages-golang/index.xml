@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gsora&#39;s place</title>
-    <link>http://blog.gsora.xyz/categories/go-openbsd-amd64-programming-languages-golang/index.xml</link>
-    <description>Recent content on gsora&#39;s place</description>
+    <title>Go Openbsd Amd64 Programming Languages Golang on gsora&#39;s place</title>
+    <link>http://blog.gsora.xyz/categories/go-openbsd-amd64-programming-languages-golang/</link>
+    <description>Recent content in Go Openbsd Amd64 Programming Languages Golang on gsora&#39;s place</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.gsora.xyz/categories/go-openbsd-amd64-programming-languages-golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Sep 2015 22:40:37 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.gsora.xyz/categories/go-openbsd-amd64-programming-languages-golang/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Build Go 1.5.x on OpenBSD 5.7 amd64</title>
@@ -16,21 +19,7 @@
       <guid>http://blog.gsora.xyz/Build-Go-1.5.x-on-OpenBSD-5.7-amd64/</guid>
       <description>&lt;p&gt;Building Go from scratch on OpenBSD is a little bit tricky.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Since the Go toolchain is completely written in Go itself, you need a Go compiler to start from.&lt;/p&gt;
-
-&lt;p&gt;Luckily, OpenBSD 5.7&amp;rsquo;s repositories already include Go 1.4.1, but for some strange reason launching the script which builds and run all the tests against the newly built release fails to find a valid &lt;code&gt;$GOROOT_BOOTSTRAP&lt;/code&gt; path.&lt;/p&gt;
-
-&lt;p&gt;A little workaround I found is to symlink &lt;code&gt;go&lt;/code&gt; and &lt;code&gt;gofmt&lt;/code&gt; binaries to a fake &lt;code&gt;bin&lt;/code&gt; folder inside &lt;code&gt;/usr/local/go/&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mkdir /usr/local/go/bin
-# ln -s /usr/local/bin/go /usr/local/go/bin/go
-# ln -s /usr/local/bin/gofmt /usr/local/go/bin/gofmt
-# export GOROOT_BOOTSTRAP=/usr/local/go/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After this trick, proceed as seen &lt;a href=&#34;https://golang.org/doc/install/source&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

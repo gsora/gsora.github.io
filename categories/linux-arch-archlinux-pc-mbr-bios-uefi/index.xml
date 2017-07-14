@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gsora&#39;s place</title>
-    <link>http://blog.gsora.xyz/categories/linux-arch-archlinux-pc-mbr-bios-uefi/index.xml</link>
-    <description>Recent content on gsora&#39;s place</description>
+    <title>Linux Arch Archlinux Pc Mbr Bios Uefi on gsora&#39;s place</title>
+    <link>http://blog.gsora.xyz/categories/linux-arch-archlinux-pc-mbr-bios-uefi/</link>
+    <description>Recent content in Linux Arch Archlinux Pc Mbr Bios Uefi on gsora&#39;s place</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.gsora.xyz/categories/linux-arch-archlinux-pc-mbr-bios-uefi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.gsora.xyz/categories/linux-arch-archlinux-pc-mbr-bios-uefi/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Convert Arch Linux installation from MBR/BIOS to UEFI</title>
@@ -18,49 +21,7 @@
 
 &lt;p&gt;The Arch Linux installation I had there was already configured to fit my needs and I wanted to test the real flexibility this distro have to offer, so I converted it from a MBR/BIOS system to a UEFI one, here’s how I did it using only the Arch installation media.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;backup&#34;&gt;Backup.&lt;/h2&gt;
-
-&lt;p&gt;Always make a backup before doing this kind of things.&lt;/p&gt;
-
-&lt;h2 id=&#34;analyzing-the-partition-table&#34;&gt;Analyzing the partition table&lt;/h2&gt;
-
-&lt;p&gt;Start the computer from the Arch installation media in UEFI mode first.&lt;/p&gt;
-
-&lt;p&gt;The UEFI system relies on a special partition called &lt;em&gt;”EFI System Partition”&lt;/em&gt;, abbreviated in &lt;em&gt;&lt;code&gt;ESP&lt;/code&gt;&lt;/em&gt;, where the OS bootloader and often its configuration files resides.&lt;/p&gt;
-
-&lt;p&gt;So, the first step is to make room on the disk for this partition.&lt;/p&gt;
-
-&lt;p&gt;My partition table was composed of:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/dev/sda1: root filesystem
-/dev/sda2: swap partition
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Since this new PC have enough RAM already, I simply deleted the swap and extended &lt;code&gt;sda1&lt;/code&gt; enough to make a 200MB, &lt;code&gt;ef00&lt;/code&gt; type &lt;code&gt;ESP&lt;/code&gt; partition.&lt;/p&gt;
-
-&lt;h2 id=&#34;convert-the-partition-table&#34;&gt;Convert the partition table&lt;/h2&gt;
-
-&lt;p&gt;To boot with UEFI, you need a &lt;code&gt;gpt&lt;/code&gt; partition table and luckily a &lt;code&gt;MBR&lt;/code&gt; partition table can become one easily.&lt;/p&gt;
-
-&lt;p&gt;Run &lt;code&gt;gdisk /dev/sdX&lt;/code&gt;, the software will warn you that if you invoke the &lt;code&gt;w&lt;/code&gt; command the partition table will be converted to &lt;code&gt;gpt&lt;/code&gt;, and we want exactly that.&lt;/p&gt;
-
-&lt;h2 id=&#34;follow-the-white-rabbit&#34;&gt;Follow the white rabbit&lt;/h2&gt;
-
-&lt;p&gt;The last thing to do is pretty much follow the &lt;a href=&#34;https://wiki.archlinux.org/index.php/Beginners&#39;_guide&#34;&gt;Beginner’s guide&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;mount your root filesystem on &lt;code&gt;/mnt&lt;/code&gt; but &lt;strong&gt;do not&lt;/strong&gt; format it&lt;/li&gt;
-&lt;li&gt;create a &lt;code&gt;/mnt/boot/uefi&lt;/code&gt; mountpoint&lt;/li&gt;
-&lt;li&gt;format your &lt;code&gt;ESP&lt;/code&gt; partition with &lt;code&gt;mkfs.vfat /dev/sdX&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;mount it on the directory created previously&lt;/li&gt;
-&lt;li&gt;rebuild your &lt;code&gt;fstab&lt;/code&gt; file with &lt;code&gt;genfstab -U /mnt/ &amp;gt; /mnt/etc/fstab&lt;/code&gt; to reflect the changes&lt;/li&gt;
-&lt;li&gt;chroot in your root&lt;/li&gt;
-&lt;li&gt;build a &lt;code&gt;grub.cfg&lt;/code&gt; file and then install the bootloader as the guide says.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Done, now your system will boot in UEFI mode!&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

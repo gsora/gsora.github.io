@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gsora&#39;s place</title>
-    <link>http://blog.gsora.xyz/categories/linux-apple-macbook-pro-retina-i3wm-tiling-wm-tiling-wm/index.xml</link>
-    <description>Recent content on gsora&#39;s place</description>
+    <title>Linux Apple Macbook Pro Retina I3wm Tiling Wm Tiling Wm on gsora&#39;s place</title>
+    <link>http://blog.gsora.xyz/categories/linux-apple-macbook-pro-retina-i3wm-tiling-wm-tiling-wm/</link>
+    <description>Recent content in Linux Apple Macbook Pro Retina I3wm Tiling Wm Tiling Wm on gsora&#39;s place</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.gsora.xyz/categories/linux-apple-macbook-pro-retina-i3wm-tiling-wm-tiling-wm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.gsora.xyz/categories/linux-apple-macbook-pro-retina-i3wm-tiling-wm-tiling-wm/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>i3wm Retina-ready</title>
@@ -18,15 +21,7 @@
 
 &lt;p&gt;This is changing today.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Since both GTK+ 3 and QT 5 now have good HiDPI support, setting &lt;code&gt;Xft.dpi: 192&lt;/code&gt; into the &lt;code&gt;.Xresources&lt;/code&gt; file makes sure all applications written using these two frameworks will scale properly on the display.&lt;/p&gt;
-
-&lt;p&gt;You have to set the i3 font to exactly 2 times your desidered size, for example &amp;ldquo;Droid Sans 10&amp;rdquo; will become &amp;ldquo;Droid Sans 20&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/gsora/i3-retina&#34;&gt;Here&lt;/a&gt; you can find my i3 configuration for this machine.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/YZ6KtEf.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
